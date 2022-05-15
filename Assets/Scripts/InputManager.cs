@@ -34,7 +34,6 @@ public class InputManager : MonoBehaviour
     bool isGameFinished = false;
 
     [SerializeField] GameObject spawner;
-    //SpawningManager spawner;
 
   
 
@@ -140,43 +139,6 @@ public class InputManager : MonoBehaviour
 
     void Collect() //Suppposed to add, Destroy function from Resource class
     {
-        /*
-         * 
-         * If writing as follow by using cast, it works, but it ie better to use Enum instead.
-        GameResources gameResource = clickedGameObject.GetComponent<GameResources>();
-        Rat rat = (Rat) gameResource;
-
-        if (rat !=null){}
-
-        //cat,kid as well
-        */
-
-        /*
-        switch (clickedGameObject.tag)// <-- Need to change!! Use Enum value in "Resource" class.
-        {
-           
-            case "Rat":
-                //clickedGameObject..DestroyResource();
-                ratCounter++;
-                ratCounterText.text = "Rat Counter: " + ratCounter;
-                break;
-
-            case "Cat":
-                catCounter++;
-                catCounterText.text = "Cat Counter: " + catCounter;
-                break;
-
-            case "Kid":
-                kidCounter++;
-                kidCounterText.text = "Kid Counter: " + kidCounter;
-                break;
-
-            default:
-                //Debug.Log(clickedGameObject.ToString());
-                Debug.Log("Nothing clicked");
-                break;
-        }
-        */
 
         GameResources gameResources = clickedGameObject.GetComponent<GameResources>();
 
