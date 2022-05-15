@@ -44,8 +44,6 @@ public class InputManager : MonoBehaviour
         RatCounter();
 
         CountDown();
-
-        CheckWinner();
     }
 
     void CountDown() 
@@ -62,6 +60,7 @@ public class InputManager : MonoBehaviour
         {
             timeRemaining = -1;
             isGameFinished = true;
+            CheckWinner();
         }
     }
 
@@ -90,6 +89,8 @@ public class InputManager : MonoBehaviour
 
             isGameFinished = false;
         }
+
+        Debug.Log("rats at players house = " + ratAtPlayerHouse + "rats at enemys house= " + ratAtEnemyHouse);
         
     }
 
