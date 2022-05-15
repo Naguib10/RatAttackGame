@@ -43,6 +43,7 @@ public class ResourceImageUpdate : MonoBehaviour
 
         }
 
+        //Debug.Log(imageInHouse.sprite.name);
     }
 
     public void PlaceCat()
@@ -91,6 +92,17 @@ public class ResourceImageUpdate : MonoBehaviour
     {
         p1,
         p2,
-        e1
+        p3,
+        p4,
+        p5,
+        p6,
+        p7,
+        e1,
+        e2,
+        e3,
+        e4,
+        e5,
+        e6,
+        e7
     }
 }

@@ -5,21 +5,31 @@ using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour
 {
+    GameManager gameManager;
+
     [SerializeField] GameObject clickedGameObject;
 
     [SerializeField] Text ratCounterText;
     [SerializeField] Text catCounterText;
     [SerializeField] Text kidCounterText;
 
-    [SerializeField] int ratCounter = 0;
-    [SerializeField] int catCounter = 0;
-    [SerializeField] int kidCounter = 0;
+    public int ratCounter = 0;//Moved to GameManager
+    public int catCounter = 0;//Moved to GameManager
+    public int kidCounter = 0;//Moved to GameManager
+
+    //public int enemyRatCounter = 0;//
+    //public int enemyCatCounter = 0;//
+    //public int enemyKidCounter = 0;//
 
     public ResourceImageUpdate imageUpdater;
 
-    public ResourceImageUpdate player1Image;
-    public ResourceImageUpdate player2Image;
-    public ResourceImageUpdate enemy1Image;
+    //public ResourceImageUpdate player1Image;
+    //public ResourceImageUpdate player2Image;
+    //public ResourceImageUpdate enemy1Image;
+
+    public ResourceImageUpdate [] playerChambers;
+    public ResourceImageUpdate[] enemyChambers;
+    //public float interval;//
 
     public int ratAtPlayerHouse = 0;
     public int ratAtEnemyHouse = 0;
@@ -29,76 +39,24 @@ public class InputManager : MonoBehaviour
 
     public string whichChamber;
 
-    public float timeRemaining = 10.00f;
+    public float timeRemaining = 10.00f;//Moved to GameManager
     [SerializeField] Text timer;
     bool isGameFinished = false;
 
     [SerializeField] GameObject spawner;
 
-  
+    void Start()
+    {
+        StartCoroutine(EnemyBehaviors());//Moved to GameManager
+    }
 
     void Update()
     {
-        ControlScheme();
+        ControlScheme();//Moved to GameManager 
 
-        RatCounter();
-
-        CountDown();
+        CountDown();//Moved to GameManager
     }
 
-    void CountDown() 
-    {
-        if (timeRemaining > 0)
-        {
-            timeRemaining -= Time.deltaTime;
-
-            timer.text = "Time left(sec): " + timeRemaining.ToString("f2");
-
-        }
-
-        if (timeRemaining <= 0 && timeRemaining > -0.1)
-        {
-            timeRemaining = -1;
-            isGameFinished = true;
-            CheckWinner();
-        }
-    }
-
-    void CheckWinner() 
-    {
-        if (isGameFinished) 
-        {
-    
-            //Debug.Log("check winner");
-
-            spawner.SetActive(false);
-            //spawner.CancelSpawn();
-
-            if (ratAtPlayerHouse < ratAtEnemyHouse)
-            {
-                winOrLose.text = "You win!!";
-            }
-            else if (ratAtPlayerHouse == ratAtEnemyHouse)
-            {
-                winOrLose.text = "Draw";
-            }
-            else
-            {
-                winOrLose.text = "You lose...";
-            }
-
-            isGameFinished = false;
-        }
-
-        Debug.Log("rats at players house = " + ratAtPlayerHouse + "rats at enemys house= " + ratAtEnemyHouse);
-        
-    }
-
-    void RatCounter() 
-    {
-        numberOfRatAtPlayerHouse.text = "Rat@Player's House: " + ratAtPlayerHouse;
-        numberOfRatAtEnemyHouse.text = "Rat@Enemy's House: " + ratAtEnemyHouse;
-    }
 
     public void ControlScheme() 
     {
@@ -131,8 +89,6 @@ public class InputManager : MonoBehaviour
                         whichChamber = "EnemyChamber";
                     }
                     Throw();
-
-                    
                 }
             }
         }
@@ -176,23 +132,21 @@ public class InputManager : MonoBehaviour
 
         {
             case ResourceImageUpdate.ChamberNumber.p1:
-                player1Image = imageUpdater;
+                playerChambers[0] = imageUpdater;
+                
                 break;
 
             case ResourceImageUpdate.ChamberNumber.p2:
-                player2Image = imageUpdater;
+                playerChambers[1] = imageUpdater;
                 break;
 
             case ResourceImageUpdate.ChamberNumber.e1:
-                enemy1Image = imageUpdater;
+                playerChambers[0] = imageUpdater;
                 break;
 
             default:
                 //other more
                 break;
-                
-
-
         }
         
 

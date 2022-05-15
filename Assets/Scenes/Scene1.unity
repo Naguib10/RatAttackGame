@@ -1645,17 +1645,23 @@ MonoBehaviour:
   ratCounter: 0
   catCounter: 0
   kidCounter: 0
+  enemyRatCounter: 0
+  enemyCatCounter: 0
+  enemyKidCounter: 0
   imageUpdater: {fileID: 0}
-  player1Image: {fileID: 1578139296}
-  player2Image: {fileID: 954842945}
   enemy1Image: {fileID: 418921582}
+  playerChambers:
+  - {fileID: 1578139296}
+  - {fileID: 954842945}
+  enemyChambers:
+  - {fileID: 418921582}
   ratAtPlayerHouse: 0
   ratAtEnemyHouse: 0
   numberOfRatAtPlayerHouse: {fileID: 1916115091}
   numberOfRatAtEnemyHouse: {fileID: 13922668}
   winOrLose: {fileID: 1349990213}
   whichChamber: 
-  timeRemaining: 10
+  timeRemaining: 15
   timer: {fileID: 2002464474}
   spawner: {fileID: 1192497350}
 --- !u!4 &1630314553
