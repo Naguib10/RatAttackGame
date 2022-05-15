@@ -463,7 +463,6 @@ MonoBehaviour:
   isCat: 0
   isKid: 0
   chamberNumber: 2
-  inputManager: {fileID: 1630314552}
 --- !u!114 &418921583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,7 +847,7 @@ RectTransform:
   - {fileID: 954842944}
   - {fileID: 418921581}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -915,7 +914,6 @@ MonoBehaviour:
   isCat: 0
   isKid: 0
   chamberNumber: 1
-  inputManager: {fileID: 1630314552}
 --- !u!114 &954842946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1544,7 +1542,6 @@ MonoBehaviour:
   isCat: 0
   isKid: 0
   chamberNumber: 0
-  inputManager: {fileID: 1630314552}
 --- !u!114 &1578139297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1638,32 +1635,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca694924bb10d34aafb0c0792bc7696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   clickedGameObject: {fileID: 0}
   ratCounterText: {fileID: 369906268}
   catCounterText: {fileID: 1297326332}
   kidCounterText: {fileID: 1125691989}
-  ratCounter: 0
-  catCounter: 0
-  kidCounter: 0
-  enemyRatCounter: 0
-  enemyCatCounter: 0
-  enemyKidCounter: 0
   imageUpdater: {fileID: 0}
-  enemy1Image: {fileID: 418921582}
   playerChambers:
   - {fileID: 1578139296}
   - {fileID: 954842945}
   enemyChambers:
   - {fileID: 418921582}
-  ratAtPlayerHouse: 0
-  ratAtEnemyHouse: 0
-  numberOfRatAtPlayerHouse: {fileID: 1916115091}
-  numberOfRatAtEnemyHouse: {fileID: 13922668}
-  winOrLose: {fileID: 1349990213}
   whichChamber: 
-  timeRemaining: 15
-  timer: {fileID: 2002464474}
-  spawner: {fileID: 1192497350}
 --- !u!4 &1630314553
 Transform:
   m_ObjectHideFlags: 0
@@ -1677,6 +1660,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1670662509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1670662511}
+  - component: {fileID: 1670662510}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1670662510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670662509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b09cf3f3e1f54ea478b916ae950e91a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ratCounter: 0
+  catCounter: 0
+  kidCounter: 0
+  ratCounterText: {fileID: 369906268}
+  catCounterText: {fileID: 1297326332}
+  kidCounterText: {fileID: 1125691989}
+  ratAtPlayerHouse: 0
+  ratAtEnemyHouse: 0
+  numberOfRatAtPlayerHouse: {fileID: 1916115091}
+  numberOfRatAtEnemyHouse: {fileID: 13922668}
+  winOrLose: {fileID: 1349990213}
+  timeRemaining: 15
+  timer: {fileID: 2002464474}
+  spawner: {fileID: 1192497350}
+--- !u!4 &1670662511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670662509}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.149784, y: 1.9950247, z: -4.5302176}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1916115089
 GameObject:

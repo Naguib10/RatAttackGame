@@ -16,7 +16,8 @@ public class ResourceImageUpdate : MonoBehaviour
 
     public ChamberNumber chamberNumber;
 
-    public InputManager inputManager;
+    InputManager inputManager;
+    GameManager gameManager;
 
 
     public void PlaceRat()
@@ -34,11 +35,11 @@ public class ResourceImageUpdate : MonoBehaviour
 
             if (inputManager.whichChamber == "PlayerChamber")
             {
-                inputManager.ratAtPlayerHouse++;
+                gameManager.ratAtPlayerHouse++;
             }
             else if (inputManager.whichChamber == "EnemyChamber") 
             {
-                inputManager.ratAtEnemyHouse++;
+                gameManager.ratAtEnemyHouse++;
             }
 
         }
@@ -54,13 +55,13 @@ public class ResourceImageUpdate : MonoBehaviour
             isRat = false;
             isCat = true;
 
-            if (inputManager.whichChamber == "PlayerChamber" && inputManager.ratAtPlayerHouse > 0)
+            if (inputManager.whichChamber == "PlayerChamber" && gameManager.ratAtPlayerHouse > 0)
             {
-                inputManager.ratAtPlayerHouse--;
+                gameManager.ratAtPlayerHouse--;
             }
-            else if (inputManager.whichChamber == "EnemyChamber" && inputManager.ratAtEnemyHouse > 0)
+            else if (inputManager.whichChamber == "EnemyChamber" && gameManager.ratAtEnemyHouse > 0)
             {
-                inputManager.ratAtEnemyHouse--;
+                gameManager.ratAtEnemyHouse--;
             }
         }
         else if (!isRat)

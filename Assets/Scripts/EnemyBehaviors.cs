@@ -5,16 +5,21 @@ using UnityEngine;
 public class EnemyBehaviors : MonoBehaviour
 {
     GameManager gameManager;
-    
+    PlayerActions playerActions;
+    InputManager inputManager;
+
     public float interval;
 
     public int enemyRatCounter = 0;
     public int enemyCatCounter = 0;
     public int enemyKidCounter = 0;
 
+    private void Start()
+    {
+        StartCoroutine(EnemyBehaviorManager());
+    }
 
-
-    IEnumerator EnemyBehaviors()
+    IEnumerator EnemyBehaviorManager()
     {
         while (true)
         {
@@ -27,11 +32,11 @@ public class EnemyBehaviors : MonoBehaviour
 
             yield return new WaitForSeconds(interval);
 
-            for (int i = 0; i < playerChambers.Length; i++)
+            for (int i = 0; i < playerActions.playerChambers.Length; i++)
             {
                 Debug.Log("PlayerChamberNum: " + i);
 
-                switch (playerChambers[i].imageInHouse.sprite.name)
+                switch (playerActions.playerChambers[i].imageInHouse.sprite.name)
                 {
 
                     case "rat_test":
@@ -41,7 +46,7 @@ public class EnemyBehaviors : MonoBehaviour
                         if (enemyKidCounter > 0)
                         {
                             enemyKidCounter--;
-                            playerChambers[i].PlaceKid();
+                            playerActions.playerChambers[i].PlaceKid();
                         }
                         break;
 
@@ -49,7 +54,7 @@ public class EnemyBehaviors : MonoBehaviour
                         if (enemyRatCounter > 0)
                         {
                             enemyRatCounter--;
-                            playerChambers[i].PlaceRat();
+                            playerActions.playerChambers[i].PlaceRat();
                             //ratAtPlayerHouse++;
                         }
                         break;
@@ -58,7 +63,7 @@ public class EnemyBehaviors : MonoBehaviour
                         if (enemyRatCounter > 0)
                         {
                             enemyRatCounter--;
-                            playerChambers[i].PlaceRat();
+                            playerActions.playerChambers[i].PlaceRat();
                             //ratAtPlayerHouse++;
                         }
                         break;
@@ -71,17 +76,17 @@ public class EnemyBehaviors : MonoBehaviour
 
             }
 
-            for (int j = 0; j < enemyChambers.Length; j++)
+            for (int j = 0; j < playerActions.enemyChambers.Length; j++)
             {
-                switch (enemyChambers[j].imageInHouse.sprite.name)
+                switch (playerActions.enemyChambers[j].imageInHouse.sprite.name)
                 {
 
                     case "rat_test":
                         if (enemyCatCounter > 0)
                         {
                             enemyCatCounter--;
-                            ratAtEnemyHouse--;
-                            enemyChambers[j].PlaceCat();
+                            //ratAtEnemyHouse--;
+                            playerActions.enemyChambers[j].PlaceCat();
                         }
                         break;
 
@@ -95,7 +100,7 @@ public class EnemyBehaviors : MonoBehaviour
                         if (enemyCatCounter > 0)
                         {
                             enemyCatCounter--;
-                            enemyChambers[j].PlaceCat();
+                            playerActions.enemyChambers[j].PlaceCat();
                         }
                         break;
 
