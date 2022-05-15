@@ -17,8 +17,6 @@ public class GameResources : MonoBehaviour
     private float[] rightOrLeft = { 1f, -1f };
 
 
-    //private float randomPosition;
-
 
     // Start is called before the first frame update
     void Start()
@@ -38,24 +36,6 @@ public class GameResources : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
-    //public void SpawnRat()
-    //{
-    //    //----------- This spawn should be for spawning on clicking! not for the automatic spawning------------------------//
-    //    imageEnemyHouse.sprite = ratSprite;
-        
-    //}
-
-    //public void SpawnCat()
-    //{
-    //    imageEnemyHouse.sprite = catSprite;
-    //}
-
-    //public void SpawnKid()
-    //{
-    //    imageEnemyHouse.sprite = kidSprite;
-    //}
-
 
 
     public void MoveAround()

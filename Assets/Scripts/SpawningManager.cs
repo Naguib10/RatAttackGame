@@ -18,9 +18,6 @@ public class SpawningManager : MonoBehaviour
     void Start()
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-        //StartCoroutine(ResourcesWave());
-        //Spawn();
-
         InvokeRepeating("Spawn", 0f, spawnTime);
     }
 
@@ -41,8 +38,6 @@ public class SpawningManager : MonoBehaviour
                 Instantiate(kid, new Vector2(screenBounds.x * startingSide, Random.Range(-screenBounds.y, 0)), Quaternion.identity);
                 break;
         }
-
-        //print(startingSide + " " + randomResource);
     
     }
 
@@ -51,15 +46,4 @@ public class SpawningManager : MonoBehaviour
         CancelInvoke("Spawn");
     }
 
-
-    //IEnumerator ResourcesWave()
-    //{
-    //    while (true)
-    //    {
-    //        yield return new WaitForSeconds(spawnTime);
-    //        gameResource.Spawn();
-    //        //gameResource.MoveAround();
-
-    //    }
-    //}
 }
