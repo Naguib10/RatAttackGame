@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject spawner;//Moved to GameManager
 
     public float timeRemaining = 10.00f;//Moved to GameManager
-    bool isGameFinished = false;// Moved from InputManager
+    public bool isGameFinished = false;// Moved from InputManager
 
     // Start is called before the first frame update
     void Start()
@@ -34,9 +34,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        inputManager.ControlScheme();//Moved to GameManager 
+        if (isGameFinished == false) 
+        {
+            inputManager.ControlScheme();
 
-        CountDown();//Moved to GameManager
+            RatCounterUpdate();
+
+            CountDown();
+        }
+        
     }
 
     void CountDown()
@@ -46,8 +52,6 @@ public class GameManager : MonoBehaviour
             timeRemaining -= Time.deltaTime;
 
             timer.text = "Time left(sec): " + timeRemaining.ToString("f2");
-
-            RatCounterUpdate();
         }
 
         if (timeRemaining <= 0 && timeRemaining > -0.1)

@@ -18,15 +18,15 @@ public class EnemyBehaviors : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(EnemyBehaviorManager());
+            StartCoroutine(EnemyBehaviorManager());
     }
 
     IEnumerator EnemyBehaviorManager()
     {
-        while (true)
+        while (gameManager.isGameFinished == false)
         {
             // Every interval (seconds), Enemy fetch the Player's stats for each resource.
-            interval = 3.5f;
+            interval = 5.5f;
 
             enemyRatResources = playerActions.ratCounter;
             enemyCatResources = playerActions.catCounter;
@@ -36,7 +36,7 @@ public class EnemyBehaviors : MonoBehaviour
 
             for (int i = 0; i < playerActions.playerChambers.Length; i++)
             {
-                Debug.Log("PlayerChamberNum: " + i);
+                //Debug.Log("PlayerChamberNum: " + i);
 
                 switch (playerActions.playerChambers[i].imageInHouse.sprite.name)
                 {
@@ -57,7 +57,7 @@ public class EnemyBehaviors : MonoBehaviour
                         {
                             enemyRatResources--;
                             playerActions.playerChambers[i].imageInHouse.sprite = resourceImageUpdate.ratSprite;
-                            //ratAtPlayerHouse++;
+                            gameManager.ratAtPlayerHouse++;
                         }
                         break;
 
@@ -66,7 +66,7 @@ public class EnemyBehaviors : MonoBehaviour
                         {
                             enemyRatResources--;
                             playerActions.playerChambers[i].imageInHouse.sprite = resourceImageUpdate.ratSprite;
-                            //ratAtPlayerHouse++;
+                            gameManager.ratAtPlayerHouse++;
                         }
                         break;
 
@@ -87,7 +87,7 @@ public class EnemyBehaviors : MonoBehaviour
                         if (enemyCatResources > 0)
                         {
                             enemyCatResources--;
-                            //ratAtEnemyHouse--;
+                            gameManager.ratAtEnemyHouse--;
                             playerActions.enemyChambers[j].imageInHouse.sprite = resourceImageUpdate.catSprite;
                         }
                         break;
@@ -112,9 +112,9 @@ public class EnemyBehaviors : MonoBehaviour
                 }
             }
 
-            Debug.Log("ratEnemyResources " + enemyRatResources);
-            Debug.Log("catEnemyResources " + enemyCatResources);
-            Debug.Log("kidEnemyResources " + enemyKidResources);
+            //Debug.Log("ratEnemyResources " + enemyRatResources);
+            //Debug.Log("catEnemyResources " + enemyCatResources);
+            //Debug.Log("kidEnemyResources " + enemyKidResources);
         }
     }
 }

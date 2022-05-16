@@ -44,6 +44,7 @@ public class PlayerActions : MonoBehaviour
                 Debug.Log("Nothing clicked");
                 break;
         }
+
     }
 
     public void Throw() 
@@ -85,7 +86,6 @@ public class PlayerActions : MonoBehaviour
                 gameManager.ratCounterText.text = "Rat Counter: " + ratCounter;
                 imageUpdater.PlaceRat();
             }
-
         }
         else if (Input.GetKey(KeyCode.Alpha2))
         {
@@ -99,7 +99,6 @@ public class PlayerActions : MonoBehaviour
                 gameManager.catCounterText.text = "Cat Counter: " + catCounter;
                 imageUpdater.PlaceCat();
             }
-
         }
         else if (Input.GetKey(KeyCode.Alpha3))
         {
@@ -113,7 +112,7 @@ public class PlayerActions : MonoBehaviour
                 gameManager.kidCounterText.text = "Kid Counter: " + kidCounter;
                 imageUpdater.PlaceKid();
             }
-
         }
     }
+
 }
