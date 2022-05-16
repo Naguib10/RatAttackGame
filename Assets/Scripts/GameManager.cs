@@ -5,12 +5,9 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    InputManager inputManager;
-    EnemyBehaviors enemyBehaviors;
-    
-    public int ratCounter = 0;
-    public int catCounter = 0;
-    public int kidCounter = 0;
+    [SerializeField] InputManager inputManager;
+    //[SerializeField] PlayerActions playerActions;
+    //[SerializeField] EnemyBehaviors enemyBehaviors;
 
     public Text ratCounterText;//Moved to Gamemanager
     public Text catCounterText;//Moved to Gamemanager
@@ -22,16 +19,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text numberOfRatAtEnemyHouse;//Moved to GameManager
     [SerializeField] Text winOrLose;//Moved to GameManager
 
-    [SerializeField] Text timer;
+    [SerializeField] Text timer;// Moved from InputManager
     [SerializeField] GameObject spawner;//Moved to GameManager
 
     public float timeRemaining = 10.00f;//Moved to GameManager
-    bool isGameFinished = false;
+    bool isGameFinished = false;// Moved from InputManager
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //inputManager = GetComponent<InputManager>();
     }
 
     // Update is called once per frame

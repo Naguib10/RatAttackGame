@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class InputManager : MonoBehaviour
 {
     GameManager gameManager;
-    PlayerActions playerActions;
+    [SerializeField] PlayerActions playerActions;
 
     public GameObject clickedGameObject;
     public string whichChamber;
@@ -15,9 +15,9 @@ public class InputManager : MonoBehaviour
     //[SerializeField] Text catCounterText;//Moved to Gamemanager
     //[SerializeField] Text kidCounterText;//Moved to Gamemanager
 
-    //public int ratCounter = 0;//Moved to GameManager
-    //public int catCounter = 0;//Moved to GameManager
-    //public int kidCounter = 0;//Moved to GameManager
+    //public int ratCounter = 0;//Moved to PlayerActions
+    //public int catCounter = 0;//Moved to PlayerActions
+    //public int kidCounter = 0;//Moved to PlayerActions
 
     //public int enemyRatCounter = 0;//Moved to EnemyBehaviors
     //public int enemyCatCounter = 0;//Moved to EnemyBehaviors

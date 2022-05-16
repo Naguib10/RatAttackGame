@@ -4,35 +4,39 @@ using UnityEngine;
 
 public class PlayerActions : MonoBehaviour
 {
-    GameManager gameManager;
-    InputManager inputManager;
+    [SerializeField] GameManager gameManager;
+    [SerializeField] InputManager inputManager;
 
-    public ResourceImageUpdate imageUpdater;//Moved to Player Actions
+    public int ratCounter = 0;// Moved
+    public int catCounter = 0;// Moved 
+    public int kidCounter = 0;// Moved 
 
-    public ResourceImageUpdate[] playerChambers;//Moved to Player Actions
-    public ResourceImageUpdate[] enemyChambers;//Moved to Player Actions
+    public ResourceImageUpdate imageUpdater;//Moved from InputManager
+
+    public ResourceImageUpdate[] playerChambers;//Moved from InputManager
+    public ResourceImageUpdate[] enemyChambers;//Moved from InputManager
 
 
-    public void Collect() //Suppposed to add, Destroy function from Resource class
+    public void Collect() 
     {
 
         GameResources gameResources = inputManager.clickedGameObject.GetComponent<GameResources>();
 
-        switch (gameResources.gameResourcesTypes)//Using Enum value from GameResources script
+        switch (gameResources.gameResourcesTypes)
         {
             case GameResources.GameResourcesTypes.Rat:
-                gameManager.ratCounter++;
-                gameManager.ratCounterText.text = "Rat Counter: " + gameManager.ratCounter;
+                ratCounter++;
+                gameManager.ratCounterText.text = "Rat Counter: " + ratCounter;
                 break;
 
             case GameResources.GameResourcesTypes.Cat:
-                gameManager.catCounter++;
-                gameManager.catCounterText.text = "Cat Counter: " + gameManager.catCounter;
+                catCounter++;
+                gameManager.catCounterText.text = "Cat Counter: " + catCounter;
                 break;
 
             case GameResources.GameResourcesTypes.Kid:
-                gameManager.kidCounter++;
-                gameManager.kidCounterText.text = "Kid Counter: " + gameManager.kidCounter;
+                kidCounter++;
+                gameManager.kidCounterText.text = "Kid Counter: " + kidCounter;
                 break;
 
             default:
@@ -42,7 +46,7 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
-    public void Throw() //Suppposed to be added, Spawn function from Resource class
+    public void Throw() 
     {
 
         ResourceImageUpdate clickedImage = inputManager.clickedGameObject.GetComponent<ResourceImageUpdate>();
@@ -50,16 +54,16 @@ public class PlayerActions : MonoBehaviour
         switch (clickedImage.chamberNumber)
 
         {
-            case ResourceImageUpdate.ChamberNumber.p1:
+            case ResourceImageUpdate.ChamberNumber.P1:
                 playerChambers[0] = imageUpdater;
 
                 break;
 
-            case ResourceImageUpdate.ChamberNumber.p2:
+            case ResourceImageUpdate.ChamberNumber.P2:
                 playerChambers[1] = imageUpdater;
                 break;
 
-            case ResourceImageUpdate.ChamberNumber.e1:
+            case ResourceImageUpdate.ChamberNumber.E1:
                 playerChambers[0] = imageUpdater;
                 break;
 
@@ -71,42 +75,42 @@ public class PlayerActions : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Alpha1))
         {
-            if (imageUpdater.isCat || imageUpdater.isRat || gameManager.ratCounter == 0)
+            if (imageUpdater.isCat || imageUpdater.isRat || ratCounter == 0)
             {
                 return;
             }
             else
             {
-                gameManager.ratCounter--;
-                gameManager.ratCounterText.text = "Rat Counter: " + gameManager.ratCounter;
+                ratCounter--;
+                gameManager.ratCounterText.text = "Rat Counter: " + ratCounter;
                 imageUpdater.PlaceRat();
             }
 
         }
         else if (Input.GetKey(KeyCode.Alpha2))
         {
-            if (imageUpdater.isKid || imageUpdater.isCat || gameManager.catCounter == 0)
+            if (imageUpdater.isKid || imageUpdater.isCat || catCounter == 0)
             {
                 return;
             }
             else
             {
-                gameManager.catCounter--;
-                gameManager.catCounterText.text = "Cat Counter: " + gameManager.catCounter;
+                catCounter--;
+                gameManager.catCounterText.text = "Cat Counter: " + catCounter;
                 imageUpdater.PlaceCat();
             }
 
         }
         else if (Input.GetKey(KeyCode.Alpha3))
         {
-            if (imageUpdater.isKid || imageUpdater.isRat || gameManager.kidCounter == 0)
+            if (imageUpdater.isKid || imageUpdater.isRat || kidCounter == 0)
             {
                 return;
             }
             else
             {
-                gameManager.kidCounter--;
-                gameManager.kidCounterText.text = "Kid Counter: " + gameManager.kidCounter;
+                kidCounter--;
+                gameManager.kidCounterText.text = "Kid Counter: " + kidCounter;
                 imageUpdater.PlaceKid();
             }
 

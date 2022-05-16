@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class EnemyBehaviors : MonoBehaviour
 {
-    GameManager gameManager;
-    PlayerActions playerActions;
-    InputManager inputManager;
+    [SerializeField] GameManager gameManager;
+    [SerializeField] PlayerActions playerActions;
+    [SerializeField] InputManager inputManager;
+    [SerializeField] ResourceImageUpdate resourceImageUpdate;
+    
 
-    public float interval;
+    public float interval; // Moved from InputManager
 
-    public int enemyRatCounter = 0;
-    public int enemyCatCounter = 0;
-    public int enemyKidCounter = 0;
+    public int enemyRatResources = 0;// Moved from InputManager
+    public int enemyCatResources = 0;// Moved from InputManager
+    public int enemyKidResources = 0;// Moved from InputManager
 
     private void Start()
     {
@@ -24,11 +26,11 @@ public class EnemyBehaviors : MonoBehaviour
         while (true)
         {
             // Every interval (seconds), Enemy fetch the Player's stats for each resource.
-            interval = 3f;
+            interval = 3.5f;
 
-            enemyRatCounter = gameManager.ratCounter;
-            enemyCatCounter = gameManager.catCounter;
-            enemyKidCounter = gameManager.kidCounter;
+            enemyRatResources = playerActions.ratCounter;
+            enemyCatResources = playerActions.catCounter;
+            enemyKidResources = playerActions.kidCounter;
 
             yield return new WaitForSeconds(interval);
 
@@ -43,27 +45,27 @@ public class EnemyBehaviors : MonoBehaviour
                         break;
 
                     case "cat_test":
-                        if (enemyKidCounter > 0)
+                        if (enemyKidResources > 0)
                         {
-                            enemyKidCounter--;
-                            playerActions.playerChambers[i].PlaceKid();
+                            enemyKidResources--;
+                            playerActions.playerChambers[i].imageInHouse.sprite = resourceImageUpdate.kidSprite;
                         }
                         break;
 
                     case "kid_test":
-                        if (enemyRatCounter > 0)
+                        if (enemyRatResources > 0)
                         {
-                            enemyRatCounter--;
-                            playerActions.playerChambers[i].PlaceRat();
+                            enemyRatResources--;
+                            playerActions.playerChambers[i].imageInHouse.sprite = resourceImageUpdate.ratSprite;
                             //ratAtPlayerHouse++;
                         }
                         break;
 
                     case "empty_png":
-                        if (enemyRatCounter > 0)
+                        if (enemyRatResources > 0)
                         {
-                            enemyRatCounter--;
-                            playerActions.playerChambers[i].PlaceRat();
+                            enemyRatResources--;
+                            playerActions.playerChambers[i].imageInHouse.sprite = resourceImageUpdate.ratSprite;
                             //ratAtPlayerHouse++;
                         }
                         break;
@@ -82,11 +84,11 @@ public class EnemyBehaviors : MonoBehaviour
                 {
 
                     case "rat_test":
-                        if (enemyCatCounter > 0)
+                        if (enemyCatResources > 0)
                         {
-                            enemyCatCounter--;
+                            enemyCatResources--;
                             //ratAtEnemyHouse--;
-                            playerActions.enemyChambers[j].PlaceCat();
+                            playerActions.enemyChambers[j].imageInHouse.sprite = resourceImageUpdate.catSprite;
                         }
                         break;
 
@@ -97,10 +99,10 @@ public class EnemyBehaviors : MonoBehaviour
                         break;
 
                     case "empty_png":
-                        if (enemyCatCounter > 0)
+                        if (enemyCatResources > 0)
                         {
-                            enemyCatCounter--;
-                            playerActions.enemyChambers[j].PlaceCat();
+                            enemyCatResources--;
+                            playerActions.enemyChambers[j].imageInHouse.sprite = resourceImageUpdate.catSprite;
                         }
                         break;
 
@@ -110,9 +112,9 @@ public class EnemyBehaviors : MonoBehaviour
                 }
             }
 
-            Debug.Log("ratEnemyResources " + enemyRatCounter);
-            Debug.Log("catEnemyResources " + enemyCatCounter);
-            Debug.Log("kidEnemyResources " + enemyKidCounter);
+            Debug.Log("ratEnemyResources " + enemyRatResources);
+            Debug.Log("catEnemyResources " + enemyCatResources);
+            Debug.Log("kidEnemyResources " + enemyKidResources);
         }
     }
 }
