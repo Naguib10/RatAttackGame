@@ -99,8 +99,6 @@ public class ResourceImageUpdate : MonoBehaviour
         if (imageInHouse.sprite.name == kidSprite.name)
         {
             imageInHouse.sprite = ratSprite;
-            //isKid = false;
-            //isRat = true;
 
             if (inputManager.clickedGameObject.tag == "PlayerChamber")
             {
@@ -117,7 +115,6 @@ public class ResourceImageUpdate : MonoBehaviour
         else if (imageInHouse.sprite = emptySprite)
         {
             imageInHouse.sprite = ratSprite;
-            //isRat = true;
 
             if (inputManager.clickedGameObject.tag == "PlayerChamber")
             {
@@ -130,7 +127,6 @@ public class ResourceImageUpdate : MonoBehaviour
                 Debug.Log("EnemyChamber Rat++");
             }
         }
-        //Debug.Log(imageInHouse.sprite.name);
     }
 
     public void PlaceCat()
@@ -138,8 +134,6 @@ public class ResourceImageUpdate : MonoBehaviour
         if (imageInHouse.sprite.name == ratSprite.name)
         {
             imageInHouse.sprite = catSprite;
-            //isRat = false;
-            //isCat = true;
 
             if (inputManager.clickedGameObject.tag == "PlayerChamber" && gameManager.ratAtPlayerHouse > 0)
             {
@@ -155,26 +149,16 @@ public class ResourceImageUpdate : MonoBehaviour
         else if (imageInHouse.sprite.name == emptySprite.name)
         {
             imageInHouse.sprite = catSprite;
-            //isCat = true;
         }
 
     }
 
     public void PlaceKid()
     {
-        if (imageInHouse.sprite.name == catSprite.name)
+        if (imageInHouse.sprite.name == catSprite.name || imageInHouse.sprite.name == emptySprite.name)
         {
             imageInHouse.sprite = kidSprite;
-            //isCat = false;
-            //isKid = true;
         }
-        else if (imageInHouse.sprite.name == emptySprite.name)
-        {
-            imageInHouse.sprite = kidSprite;
-            //isKid = true;
-        }
-
-
     }
 
     public enum ChamberNumber
