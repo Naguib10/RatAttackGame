@@ -11,9 +11,6 @@ public class SpawningManager : MonoBehaviour
     private float[] rightOrLeft = { 1f, -1f };
 
 
-
-
-
     //Start is called before the first frame update
     void Start()
     {
