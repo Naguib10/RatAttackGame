@@ -79,15 +79,15 @@ public class GameManager : MonoBehaviour
 
             if (ratAtPlayerHouse < ratAtEnemyHouse)
             {
-                winOrLose.text = "You win!!" + " Rat@PlayerHouse" + ratAtPlayerHouse + " Rat@EnemyHouse" + ratAtEnemyHouse;
+                winOrLose.text = "You win!! You threw rats more than your neighbor did!!";
             }
             else if (ratAtPlayerHouse == ratAtEnemyHouse)
             {
-                winOrLose.text = "Draw" + " Rat@PlayerHouse" + ratAtPlayerHouse + " Rat@EnemyHouse" + ratAtEnemyHouse; ;
+                winOrLose.text = "Draw";
             }
             else if (ratAtPlayerHouse > ratAtEnemyHouse)
             {
-                winOrLose.text = "You lose..." + " Rat@PlayerHouse" + ratAtPlayerHouse + " Rat@EnemyHouse" + ratAtEnemyHouse; ;
+                winOrLose.text = "You lose.. Your neighbor threw rats more than you did...";
             }
         }
     }

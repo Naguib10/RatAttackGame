@@ -11,7 +11,7 @@ public class GameResources : MonoBehaviour
 
     public float spawnTime = 1.0f;
 
-    public float speed = 10.0f;
+    public float speed = 6.0f;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
     private float[] rightOrLeft = { 1f, -1f };
@@ -40,7 +40,7 @@ public class GameResources : MonoBehaviour
 
     public void MoveAround()
     {
-        speed = Random.Range(6.0f, 12.0f);
+        speed = Random.Range(3.0f, 10.0f);
         rb = this.GetComponent<Rigidbody2D>();
 
         if (transform.position.x > 0)

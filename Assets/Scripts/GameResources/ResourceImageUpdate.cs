@@ -103,12 +103,12 @@ public class ResourceImageUpdate : MonoBehaviour
             if (inputManager.clickedGameObject.tag == "PlayerChamber")
             {
                 gameManager.ratAtPlayerHouse++;
-                Debug.Log("PlayerChamber Rat++");
+                //Debug.Log("PlayerChamber Rat++");
             }
             else if (inputManager.clickedGameObject.tag == "EnemyChamber")
             {
                 gameManager.ratAtEnemyHouse++;
-                Debug.Log("EnemyChamber Rat++");
+                //Debug.Log("EnemyChamber Rat++");
             }
 
         }
@@ -119,12 +119,12 @@ public class ResourceImageUpdate : MonoBehaviour
             if (inputManager.clickedGameObject.tag == "PlayerChamber")
             {
                 gameManager.ratAtPlayerHouse++;
-                Debug.Log("PlayerChamber Rat++");
+                //Debug.Log("PlayerChamber Rat++");
             }
             else if (inputManager.clickedGameObject.tag == "EnemyChamber")
             {
                 gameManager.ratAtEnemyHouse++;
-                Debug.Log("EnemyChamber Rat++");
+                //Debug.Log("EnemyChamber Rat++");
             }
         }
     }
@@ -138,12 +138,12 @@ public class ResourceImageUpdate : MonoBehaviour
             if (inputManager.clickedGameObject.tag == "PlayerChamber" && gameManager.ratAtPlayerHouse > 0)
             {
                 gameManager.ratAtPlayerHouse--;
-                Debug.Log("PlayerChamber Rat--");
+                //Debug.Log("PlayerChamber Rat--");
             }
             else if (inputManager.clickedGameObject.tag == "EnemyChamber" && gameManager.ratAtEnemyHouse > 0)
             {
                 gameManager.ratAtEnemyHouse--;
-                Debug.Log("EnemyChamber Rat--");
+                //Debug.Log("EnemyChamber Rat--");
             }
         }
         else if (imageInHouse.sprite.name == emptySprite.name)
