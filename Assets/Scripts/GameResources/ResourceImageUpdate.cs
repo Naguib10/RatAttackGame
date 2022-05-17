@@ -110,9 +110,8 @@ public class ResourceImageUpdate : MonoBehaviour
                 gameManager.ratAtEnemyHouse++;
                 //Debug.Log("EnemyChamber Rat++");
             }
-
         }
-        else if (imageInHouse.sprite = emptySprite)
+        else if (imageInHouse.sprite.name == emptySprite.name)
         {
             imageInHouse.sprite = ratSprite;
 
@@ -127,6 +126,14 @@ public class ResourceImageUpdate : MonoBehaviour
                 //Debug.Log("EnemyChamber Rat++");
             }
         }
+        else if (imageInHouse.sprite.name == catSprite.name || imageInHouse.sprite.name == ratSprite.name)
+        {
+            return;
+        }
+
+        isRat = true;
+        isCat = false;
+        isKid = false;
     }
 
     public void PlaceCat()
@@ -150,7 +157,6 @@ public class ResourceImageUpdate : MonoBehaviour
         {
             imageInHouse.sprite = catSprite;
         }
-
     }
 
     public void PlaceKid()

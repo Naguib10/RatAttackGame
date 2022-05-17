@@ -26,17 +26,17 @@ public class PlayerActions : MonoBehaviour
         {
             case GameResources.GameResourcesTypes.Rat:
                 ratCounter++;
-                gameManager.ratCounterText.text = "Rat Counter: " + ratCounter;
+                gameManager.ratCounterText.text = "" + ratCounter;
                 break;
 
             case GameResources.GameResourcesTypes.Cat:
                 catCounter++;
-                gameManager.catCounterText.text = "Cat Counter: " + catCounter;
+                gameManager.catCounterText.text = "" + catCounter;
                 break;
 
             case GameResources.GameResourcesTypes.Kid:
                 kidCounter++;
-                gameManager.kidCounterText.text = "Kid Counter: " + kidCounter;
+                gameManager.kidCounterText.text = "" + kidCounter;
                 break;
 
             default:
@@ -122,40 +122,43 @@ public class PlayerActions : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Alpha1))
         {
-            if (imageUpdater.isCat || imageUpdater.isRat || ratCounter == 0)
+            //if (imageUpdater.isCat || imageUpdater.isRat || ratCounter == 0)
+            if (imageUpdater.imageInHouse.sprite.name == imageUpdater.catSprite.name || imageUpdater.imageInHouse.sprite.name == imageUpdater.ratSprite.name || ratCounter ==0)
             {
                 return;
             }
             else
             {
                 ratCounter--;
-                gameManager.ratCounterText.text = "Rat Counter: " + ratCounter;
+                gameManager.ratCounterText.text = "" + ratCounter;
                 imageUpdater.PlaceRat();
             }
         }
         else if (Input.GetKey(KeyCode.Alpha2))
         {
-            if (imageUpdater.isKid || imageUpdater.isCat || catCounter == 0)
+            //if (imageUpdater.isKid || imageUpdater.isCat || catCounter == 0)
+            if (imageUpdater.imageInHouse.sprite.name == imageUpdater.kidSprite.name || imageUpdater.imageInHouse.sprite.name == imageUpdater.catSprite.name || catCounter == 0)
             {
                 return;
             }
             else
             {
                 catCounter--;
-                gameManager.catCounterText.text = "Cat Counter: " + catCounter;
+                gameManager.catCounterText.text = "" + catCounter;
                 imageUpdater.PlaceCat();
             }
         }
         else if (Input.GetKey(KeyCode.Alpha3))
         {
-            if (imageUpdater.isKid || imageUpdater.isRat || kidCounter == 0)
+            //if (imageUpdater.isKid || imageUpdater.isRat || kidCounter == 0)
+            if (imageUpdater.imageInHouse.sprite.name == imageUpdater.kidSprite.name || imageUpdater.imageInHouse.sprite.name == imageUpdater.ratSprite.name || kidCounter == 0)
             {
                 return;
             }
             else
             {
                 kidCounter--;
-                gameManager.kidCounterText.text = "Kid Counter: " + kidCounter;
+                gameManager.kidCounterText.text = "" + kidCounter;
                 imageUpdater.PlaceKid();
             }
         }

@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
         {
             timeRemaining -= Time.deltaTime;
 
-            timer.text = "Time left(sec): " + timeRemaining.ToString("f2");
+            timer.text = timeRemaining.ToString("f2");
         }
 
         if (timeRemaining <= 0 && timeRemaining > -0.1)
@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
 
     void RatCounterUpdate()
     {
-        numberOfRatAtPlayerHouse.text = "Rat@Player's House: " + ratAtPlayerHouse;
-        numberOfRatAtEnemyHouse.text = "Rat@Enemy's House: " + ratAtEnemyHouse;
+        numberOfRatAtPlayerHouse.text = "" + ratAtPlayerHouse;
+        numberOfRatAtEnemyHouse.text = "" + ratAtEnemyHouse;
     }
 }

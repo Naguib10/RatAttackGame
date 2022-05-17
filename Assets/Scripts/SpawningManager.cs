@@ -26,13 +26,13 @@ public class SpawningManager : MonoBehaviour
 
         switch (randomResource) {
             case 1:
-                Instantiate(rat, new Vector2(screenBounds.x * startingSide, Random.Range(-screenBounds.y, 0)), Quaternion.identity);
+                Instantiate(rat, new Vector2(screenBounds.x * startingSide, Random.Range(-screenBounds.y * 0.75f, 0)), Quaternion.identity);
                 break;
             case 2:
-                Instantiate(cat, new Vector2(screenBounds.x * startingSide, Random.Range(-screenBounds.y, 0)), Quaternion.identity);
+                Instantiate(cat, new Vector2(screenBounds.x * startingSide, Random.Range(-screenBounds.y * 0.75f, 0)), Quaternion.identity);
                 break;
             case 3:
-                Instantiate(kid, new Vector2(screenBounds.x * startingSide, Random.Range(-screenBounds.y, 0)), Quaternion.identity);
+                Instantiate(kid, new Vector2(screenBounds.x * startingSide, Random.Range(-screenBounds.y * 0.75f, 0)), Quaternion.identity);
                 break;
         }
     
