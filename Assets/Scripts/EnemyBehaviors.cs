@@ -6,27 +6,28 @@ public class EnemyBehaviors : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
     [SerializeField] PlayerActions playerActions;
-    [SerializeField] InputManager inputManager;
     [SerializeField] ResourceImageUpdate resourceImageUpdate;
     
+    public float interval;
 
-    public float interval; // Moved from InputManager
-
-    public int enemyRatResources = 0;// Moved from InputManager
-    public int enemyCatResources = 0;// Moved from InputManager
-    public int enemyKidResources = 0;// Moved from InputManager
+    public int enemyRatResources;
+    public int enemyCatResources;
+    public int enemyKidResources;
 
     private void Start()
     {
-            StartCoroutine(EnemyBehaviorManager());
+        enemyRatResources = 0;
+        enemyCatResources = 0;
+        enemyKidResources = 0;
+
+        StartCoroutine(EnemyBehaviorManager());
     }
 
     IEnumerator EnemyBehaviorManager()
     {
         while (gameManager.isGameFinished == false)
         {
-            // Every interval (seconds), Enemy fetch the Player's stats for each resource.
-            interval = 5.5f;
+            interval = 4.0f;// Every interval (seconds), Enemy fetch the Player's stats for each resource.
 
             enemyRatResources = playerActions.ratCounter;
             enemyCatResources = playerActions.catCounter;
@@ -36,8 +37,6 @@ public class EnemyBehaviors : MonoBehaviour
 
             for (int i = 0; i < playerActions.playerChambers.Length; i++)
             {
-                //Debug.Log("PlayerChamberNum: " + i);
-
                 switch (playerActions.playerChambers[i].imageInHouse.sprite.name)
                 {
 
@@ -49,6 +48,10 @@ public class EnemyBehaviors : MonoBehaviour
                         {
                             enemyKidResources--;
                             playerActions.playerChambers[i].imageInHouse.sprite = resourceImageUpdate.kidSprite;
+
+                            SfxManager.instance.ManageSFX(2);
+
+                            yield return new WaitForSeconds(0.5f);
                         }
                         break;
 
@@ -58,6 +61,10 @@ public class EnemyBehaviors : MonoBehaviour
                             enemyRatResources--;
                             playerActions.playerChambers[i].imageInHouse.sprite = resourceImageUpdate.ratSprite;
                             gameManager.ratAtPlayerHouse++;
+
+                            SfxManager.instance.ManageSFX(0);
+
+                            yield return new WaitForSeconds(0.5f);
                         }
                         break;
 
@@ -67,6 +74,10 @@ public class EnemyBehaviors : MonoBehaviour
                             enemyRatResources--;
                             playerActions.playerChambers[i].imageInHouse.sprite = resourceImageUpdate.ratSprite;
                             gameManager.ratAtPlayerHouse++;
+
+                            SfxManager.instance.ManageSFX(0);
+
+                            yield return new WaitForSeconds(0.5f);
                         }
                         break;
 
@@ -74,8 +85,6 @@ public class EnemyBehaviors : MonoBehaviour
                     default:
                         break;
                 }
-
-
             }
 
             for (int j = 0; j < playerActions.enemyChambers.Length; j++)
@@ -89,6 +98,10 @@ public class EnemyBehaviors : MonoBehaviour
                             enemyCatResources--;
                             gameManager.ratAtEnemyHouse--;
                             playerActions.enemyChambers[j].imageInHouse.sprite = resourceImageUpdate.catSprite;
+
+                            SfxManager.instance.ManageSFX(1);
+
+                            yield return new WaitForSeconds(0.5f);
                         }
                         break;
 
@@ -103,6 +116,10 @@ public class EnemyBehaviors : MonoBehaviour
                         {
                             enemyCatResources--;
                             playerActions.enemyChambers[j].imageInHouse.sprite = resourceImageUpdate.catSprite;
+
+                            SfxManager.instance.ManageSFX(1);
+
+                            yield return new WaitForSeconds(0.5f);
                         }
                         break;
 
@@ -111,10 +128,6 @@ public class EnemyBehaviors : MonoBehaviour
                         break;
                 }
             }
-
-            //Debug.Log("ratEnemyResources " + enemyRatResources);
-            //Debug.Log("catEnemyResources " + enemyCatResources);
-            //Debug.Log("kidEnemyResources " + enemyKidResources);
         }
     }
 }

@@ -6,43 +6,50 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] InputManager inputManager;
-    //[SerializeField] PlayerActions playerActions;
-    //[SerializeField] EnemyBehaviors enemyBehaviors;
 
-    public Text ratCounterText;//Moved to Gamemanager
-    public Text catCounterText;//Moved to Gamemanager
-    public Text kidCounterText;//Moved to Gamemanager
+    public Text ratCounterText;
+    public Text catCounterText;
+    public Text kidCounterText;
 
-    public int ratAtPlayerHouse = 0;//Moved to GameManager
-    public int ratAtEnemyHouse = 0; //Moved to GameManager
-    [SerializeField] Text numberOfRatAtPlayerHouse;//Moved to GameManager
-    [SerializeField] Text numberOfRatAtEnemyHouse;//Moved to GameManager
-    [SerializeField] Text winOrLose;//Moved to GameManager
+    public int ratAtPlayerHouse;
+    public int ratAtEnemyHouse;
 
-    [SerializeField] Text timer;// Moved from InputManager
-    [SerializeField] GameObject spawner;//Moved to GameManager
+    [SerializeField] Text numberOfRatAtPlayerHouse;
+    [SerializeField] Text numberOfRatAtEnemyHouse;
+    [SerializeField] Text winOrLose;
 
-    public float timeRemaining = 10.00f;//Moved to GameManager
-    public bool isGameFinished = false;// Moved from InputManager
+    [SerializeField] Text timer;
+    [SerializeField] GameObject spawner;
 
-    // Start is called before the first frame update
+    public float timeRemaining;
+    public bool isGameFinished;
+    
     void Start()
     {
-        //inputManager = GetComponent<InputManager>();
+        ratAtPlayerHouse = 0;
+        ratAtEnemyHouse = 0;
+        timeRemaining = 60.00f;
+
+        BgmManager.instance.ManageBGM("Play", 0);
+
+        SfxManager.instance.ManageSFX(6);
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (isGameFinished == false) 
-        {
+        if (!isGameFinished)
+        {   
             inputManager.ControlScheme();
 
             RatCounterUpdate();
 
             CountDown();
         }
-        
+        else
+        {
+            BgmManager.instance.ManageBGM("Stop", 1);
+        }
     }
 
     void CountDown()
@@ -50,44 +57,42 @@ public class GameManager : MonoBehaviour
         if (timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;
-
             timer.text = timeRemaining.ToString("f2");
         }
-
-        if (timeRemaining <= 0 && timeRemaining > -0.1)
+        else if (timeRemaining <= 0 && timeRemaining > -0.1) 
         {
             timeRemaining = -1;
             isGameFinished = true;
+
             CheckWinner();
         }
     }
 
     void CheckWinner()
     {
-
-        if (isGameFinished)
+        if (isGameFinished) 
         {
-
-            //Debug.Log("check winner");
-
-            //spawner.SetActive(false);
-            //spawner.CancelSpawn();
-
             Destroy(spawner);
-            //spawner.SetActive(false);
-            //spawner.GetComponent<SpawningManager>().enabled = false;
+
+            SfxManager.instance.ManageSFX(7);
 
             if (ratAtPlayerHouse < ratAtEnemyHouse)
             {
                 winOrLose.text = "You win!! You threw rats more than your neighbor did!!";
+
+                SfxManager.instance.ManageSFX(3);
             }
             else if (ratAtPlayerHouse == ratAtEnemyHouse)
             {
                 winOrLose.text = "Draw";
+
+                SfxManager.instance.ManageSFX(4);
             }
             else if (ratAtPlayerHouse > ratAtEnemyHouse)
             {
                 winOrLose.text = "You lose.. Your neighbor threw rats more than you did...";
+
+                SfxManager.instance.ManageSFX(5);
             }
         }
     }

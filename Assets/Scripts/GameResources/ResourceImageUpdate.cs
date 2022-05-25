@@ -15,84 +15,12 @@ public class ResourceImageUpdate : MonoBehaviour
     public Sprite kidSprite;
     public Sprite emptySprite;
 
-    public bool isRat, isCat, isKid, isEmpty;
+    public bool isRat;
+    public bool isCat;
+    public bool isKid;
+    public bool isEmpty;
 
     public ChamberNumber chamberNumber;
-
-    /* This is Origiinal
-    public void PlaceRat()
-    {
-
-
-        if (isKid)
-        {
-            imageInHouse.sprite = ratSprite;
-            isKid = false;
-            isRat = true;
-        }
-        else if (!isKid)
-        {
-            imageInHouse.sprite = ratSprite;
-            isRat = true;
-
-            if (inputManager.whichChamber == "PlayerChamber")
-            {
-                gameManager.ratAtPlayerHouse++;
-                Debug.Log("PlayerChamber Rat++");
-            }
-            else if (inputManager.whichChamber == "EnemyChamber")
-            {
-                gameManager.ratAtEnemyHouse++;
-                Debug.Log("PlayerChamber Rat++");
-            }
-        }
-        //Debug.Log(imageInHouse.sprite.name);
-    }
-
-    public void PlaceCat()
-    {
-        if (isRat)
-        {
-            imageInHouse.sprite = catSprite;
-            isRat = false;
-            isCat = true;
-
-            if (inputManager.whichChamber == "PlayerChamber" && gameManager.ratAtPlayerHouse > 0)
-            {
-                gameManager.ratAtPlayerHouse--;
-                Debug.Log("PlayerChamber Rat--");
-            }
-            else if (inputManager.whichChamber == "EnemyChamber" && gameManager.ratAtEnemyHouse > 0)
-            {
-                gameManager.ratAtEnemyHouse--;
-                Debug.Log("EnemyChamber Rat--");
-            }
-        }
-        else if (!isRat)
-        {
-            imageInHouse.sprite = catSprite;
-            isCat = true;
-        }
-
-    }
-
-    public void PlaceKid()
-    {
-        if (isCat)
-        {
-            imageInHouse.sprite = kidSprite;
-            isCat = false;
-            isKid = true;
-        }
-        else if (!isCat)
-        {
-            imageInHouse.sprite = kidSprite;
-            isKid = true;
-        }
-
-
-    }
-    */
 
     public void PlaceRat()
     {
@@ -103,12 +31,10 @@ public class ResourceImageUpdate : MonoBehaviour
             if (inputManager.clickedGameObject.tag == "PlayerChamber")
             {
                 gameManager.ratAtPlayerHouse++;
-                //Debug.Log("PlayerChamber Rat++");
             }
             else if (inputManager.clickedGameObject.tag == "EnemyChamber")
             {
                 gameManager.ratAtEnemyHouse++;
-                //Debug.Log("EnemyChamber Rat++");
             }
         }
         else if (imageInHouse.sprite.name == emptySprite.name)
@@ -118,18 +44,18 @@ public class ResourceImageUpdate : MonoBehaviour
             if (inputManager.clickedGameObject.tag == "PlayerChamber")
             {
                 gameManager.ratAtPlayerHouse++;
-                //Debug.Log("PlayerChamber Rat++");
             }
             else if (inputManager.clickedGameObject.tag == "EnemyChamber")
             {
                 gameManager.ratAtEnemyHouse++;
-                //Debug.Log("EnemyChamber Rat++");
             }
         }
         else if (imageInHouse.sprite.name == catSprite.name || imageInHouse.sprite.name == ratSprite.name)
         {
             return;
         }
+
+        SfxManager.instance.ManageSFX(0);
 
         isRat = true;
         isCat = false;
@@ -145,18 +71,18 @@ public class ResourceImageUpdate : MonoBehaviour
             if (inputManager.clickedGameObject.tag == "PlayerChamber" && gameManager.ratAtPlayerHouse > 0)
             {
                 gameManager.ratAtPlayerHouse--;
-                //Debug.Log("PlayerChamber Rat--");
             }
             else if (inputManager.clickedGameObject.tag == "EnemyChamber" && gameManager.ratAtEnemyHouse > 0)
             {
                 gameManager.ratAtEnemyHouse--;
-                //Debug.Log("EnemyChamber Rat--");
             }
         }
         else if (imageInHouse.sprite.name == emptySprite.name)
         {
             imageInHouse.sprite = catSprite;
         }
+
+        SfxManager.instance.ManageSFX(1);
     }
 
     public void PlaceKid()
@@ -165,6 +91,8 @@ public class ResourceImageUpdate : MonoBehaviour
         {
             imageInHouse.sprite = kidSprite;
         }
+
+        SfxManager.instance.ManageSFX(2);
     }
 
     public enum ChamberNumber

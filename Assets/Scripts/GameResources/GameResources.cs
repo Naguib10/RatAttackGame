@@ -9,28 +9,25 @@ public class GameResources : MonoBehaviour
 
     public GameResourcesTypes gameResourcesTypes;
 
-    public float spawnTime = 1.0f;
+    public float spawnTime;
 
-    public float speed = 6.0f;
+    public float speed;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
     private float[] rightOrLeft = { 1f, -1f };
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-        MoveAround();
+        spawnTime = 1.0f;
+        speed = 6.0f;
 
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+
+        MoveAround();
     }
 
-
-    // Update is called once per frame
     void Update()
     {
-
         if (transform.position.x < -screenBounds.x * 1.2 || transform.position.x > screenBounds.x * 1.2)
         {
             Destroy(this.gameObject);
@@ -50,10 +47,9 @@ public class GameResources : MonoBehaviour
         {
             rb.velocity = new Vector2(speed, 0);
         }
-        //print(randomPosition);
     }
 
-    //test
+    /*
     public void DestroyResource()
     {
         // destroy resource either in house or pick up from street
@@ -65,6 +61,7 @@ public class GameResources : MonoBehaviour
     {
         //placing the object in either house by the player
     }
+    */
 
 
     public enum GameResourcesTypes
