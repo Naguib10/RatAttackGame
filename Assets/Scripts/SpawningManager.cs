@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class SpawningManager : MonoBehaviour
 {
-    public GameResources rat, cat, kid;
-    public float spawnTime = 1.0f;
+    public GameResources rat;
+    public GameResources cat;
+    public GameResources kid;
+
+    public float spawnTime;
     private Vector2 screenBounds;
 
     private float[] rightOrLeft = { 1f, -1f };
 
-
-    //Start is called before the first frame update
     void Start()
     {
+        spawnTime = 1.0f;
+
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+
         InvokeRepeating("Spawn", 0f, spawnTime);
     }
 
@@ -35,12 +39,10 @@ public class SpawningManager : MonoBehaviour
                 Instantiate(kid, new Vector2(screenBounds.x * startingSide, Random.Range(-screenBounds.y * 0.7f, -screenBounds.y * 0.45f)), Quaternion.identity);
                 break;
         }
-    
     }
 
     public void CancelSpawn()
     {
         CancelInvoke("Spawn");
     }
-
 }

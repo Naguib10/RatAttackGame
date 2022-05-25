@@ -7,14 +7,20 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] GameManager gameManager;
     [SerializeField] InputManager inputManager;
 
-    public int ratCounter = 0;// Moved
-    public int catCounter = 0;// Moved 
-    public int kidCounter = 0;// Moved 
+    public int ratCounter;
+    public int catCounter;
+    public int kidCounter;
 
-    public ResourceImageUpdate imageUpdater;//MovSed from InputManager
+    public ResourceImageUpdate imageUpdater;
+    public ResourceImageUpdate[] playerChambers;
+    public ResourceImageUpdate[] enemyChambers;
 
-    public ResourceImageUpdate[] playerChambers;//Moved from InputManager
-    public ResourceImageUpdate[] enemyChambers;//Moved from InputManager
+    private void Start()
+    {
+        ratCounter = 0;
+        catCounter = 0;
+        kidCounter = 0;
+    }
 
 
     public void Collect() 
@@ -27,20 +33,25 @@ public class PlayerActions : MonoBehaviour
             case GameResources.GameResourcesTypes.Rat:
                 ratCounter++;
                 gameManager.ratCounterText.text = "" + ratCounter;
+
+                SfxManager.instance.ManageSFX(0);
                 break;
 
             case GameResources.GameResourcesTypes.Cat:
                 catCounter++;
                 gameManager.catCounterText.text = "" + catCounter;
+
+                SfxManager.instance.ManageSFX(1);
                 break;
 
             case GameResources.GameResourcesTypes.Kid:
                 kidCounter++;
                 gameManager.kidCounterText.text = "" + kidCounter;
+
+                SfxManager.instance.ManageSFX(2);
                 break;
 
             default:
-                //Debug.Log(clickedGameObject.ToString());
                 Debug.Log("Nothing clicked");
                 break;
         }
@@ -122,7 +133,6 @@ public class PlayerActions : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Alpha1))
         {
-            //if (imageUpdater.isCat || imageUpdater.isRat || ratCounter == 0)
             if (imageUpdater.imageInHouse.sprite.name == imageUpdater.catSprite.name || imageUpdater.imageInHouse.sprite.name == imageUpdater.ratSprite.name || ratCounter ==0)
             {
                 return;
@@ -131,12 +141,12 @@ public class PlayerActions : MonoBehaviour
             {
                 ratCounter--;
                 gameManager.ratCounterText.text = "" + ratCounter;
+
                 imageUpdater.PlaceRat();
             }
         }
         else if (Input.GetKey(KeyCode.Alpha2))
         {
-            //if (imageUpdater.isKid || imageUpdater.isCat || catCounter == 0)
             if (imageUpdater.imageInHouse.sprite.name == imageUpdater.kidSprite.name || imageUpdater.imageInHouse.sprite.name == imageUpdater.catSprite.name || catCounter == 0)
             {
                 return;
@@ -145,12 +155,12 @@ public class PlayerActions : MonoBehaviour
             {
                 catCounter--;
                 gameManager.catCounterText.text = "" + catCounter;
+
                 imageUpdater.PlaceCat();
             }
         }
         else if (Input.GetKey(KeyCode.Alpha3))
         {
-            //if (imageUpdater.isKid || imageUpdater.isRat || kidCounter == 0)
             if (imageUpdater.imageInHouse.sprite.name == imageUpdater.kidSprite.name || imageUpdater.imageInHouse.sprite.name == imageUpdater.ratSprite.name || kidCounter == 0)
             {
                 return;
@@ -159,6 +169,7 @@ public class PlayerActions : MonoBehaviour
             {
                 kidCounter--;
                 gameManager.kidCounterText.text = "" + kidCounter;
+
                 imageUpdater.PlaceKid();
             }
         }
