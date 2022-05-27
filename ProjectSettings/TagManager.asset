@@ -11,6 +11,7 @@ TagManager:
   - Houses
   - PlayerChamber
   - EnemyChamber
+  - DialogueUI
   layers:
   - Default
   - TransparentFX

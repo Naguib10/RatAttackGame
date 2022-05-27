@@ -51,6 +51,8 @@ public class EnemyBehaviors : MonoBehaviour
 
                             SfxManager.instance.ManageSFX(2);
 
+                            DialogueManager.instance.StartDialogue(0, 1);// Show Player's dialogue "Don't throw kid"
+
                             yield return new WaitForSeconds(0.5f);
                         }
                         break;
@@ -64,6 +66,8 @@ public class EnemyBehaviors : MonoBehaviour
 
                             SfxManager.instance.ManageSFX(0);
 
+                            DialogueManager.instance.StartDialogue(0, 0);// Show Player's dialogue "Don't throw rat"
+
                             yield return new WaitForSeconds(0.5f);
                         }
                         break;
@@ -76,6 +80,8 @@ public class EnemyBehaviors : MonoBehaviour
                             gameManager.ratAtPlayerHouse++;
 
                             SfxManager.instance.ManageSFX(0);
+
+                            DialogueManager.instance.StartDialogue(0, 0);// Show Player's dialogue "Don't throw rat"
 
                             yield return new WaitForSeconds(0.5f);
                         }
@@ -101,6 +107,8 @@ public class EnemyBehaviors : MonoBehaviour
 
                             SfxManager.instance.ManageSFX(1);
 
+                            DialogueManager.instance.StartDialogue(0, 1);// Show Player's dialogue "Don't throw cat"
+
                             yield return new WaitForSeconds(0.5f);
                         }
                         break;
@@ -118,6 +126,8 @@ public class EnemyBehaviors : MonoBehaviour
                             playerActions.enemyChambers[j].imageInHouse.sprite = resourceImageUpdate.catSprite;
 
                             SfxManager.instance.ManageSFX(1);
+
+                            DialogueManager.instance.StartDialogue(0, 1);// Show Player's dialogue "Don't throw cat"
 
                             yield return new WaitForSeconds(0.5f);
                         }

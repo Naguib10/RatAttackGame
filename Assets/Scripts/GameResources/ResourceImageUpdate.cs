@@ -35,6 +35,8 @@ public class ResourceImageUpdate : MonoBehaviour
             else if (inputManager.clickedGameObject.tag == "EnemyChamber")
             {
                 gameManager.ratAtEnemyHouse++;
+
+                DialogueManager.instance.StartDialogue(1, 0);// Show NPC's dialogue "Don't throw rat"
             }
         }
         else if (imageInHouse.sprite.name == emptySprite.name)
@@ -48,6 +50,8 @@ public class ResourceImageUpdate : MonoBehaviour
             else if (inputManager.clickedGameObject.tag == "EnemyChamber")
             {
                 gameManager.ratAtEnemyHouse++;
+
+                DialogueManager.instance.StartDialogue(1, 0);// Show NPC's dialogue "Don't throw rat"
             }
         }
         else if (imageInHouse.sprite.name == catSprite.name || imageInHouse.sprite.name == ratSprite.name)
@@ -71,6 +75,9 @@ public class ResourceImageUpdate : MonoBehaviour
             if (inputManager.clickedGameObject.tag == "PlayerChamber" && gameManager.ratAtPlayerHouse > 0)
             {
                 gameManager.ratAtPlayerHouse--;
+
+                DialogueManager.instance.StartDialogue(1, 1);// Show NPC's dialogue "Don't throw cat"
+
             }
             else if (inputManager.clickedGameObject.tag == "EnemyChamber" && gameManager.ratAtEnemyHouse > 0)
             {
@@ -80,6 +87,11 @@ public class ResourceImageUpdate : MonoBehaviour
         else if (imageInHouse.sprite.name == emptySprite.name)
         {
             imageInHouse.sprite = catSprite;
+
+            if (inputManager.clickedGameObject.tag == "PlayerChamber") 
+            {
+                DialogueManager.instance.StartDialogue(1, 1);// Show NPC's dialogue "Don't throw cat"
+            }
         }
 
         SfxManager.instance.ManageSFX(1);
@@ -90,6 +102,11 @@ public class ResourceImageUpdate : MonoBehaviour
         if (imageInHouse.sprite.name == catSprite.name || imageInHouse.sprite.name == emptySprite.name)
         {
             imageInHouse.sprite = kidSprite;
+
+            if (inputManager.clickedGameObject.tag == "EnemyChamber") 
+            {
+                DialogueManager.instance.StartDialogue(1, 2);// Show NPC's dialogue "Don't throw kid"
+            }
         }
 
         SfxManager.instance.ManageSFX(2);
