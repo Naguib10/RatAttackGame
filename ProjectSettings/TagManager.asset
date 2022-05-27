@@ -12,6 +12,7 @@ TagManager:
   - PlayerChamber
   - EnemyChamber
   - DialogueUI
+  - ResultBox
   layers:
   - Default
   - TransparentFX

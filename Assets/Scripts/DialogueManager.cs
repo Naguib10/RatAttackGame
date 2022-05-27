@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour
     }
     #endregion
 
+    [SerializeField] Image dialogueBoxImage;
     [SerializeField] Text nameText;
     [SerializeField] Text dialogueText;
 
@@ -27,5 +28,18 @@ public class DialogueManager : MonoBehaviour
     {
         nameText.text = dialogue.name[nameIndex];
         dialogueText.text = dialogue.sentences[textIndex];
+
+        if (nameIndex == 0) // nameText[nameIndex] : 0="You:", 1="Neighbor:"
+        {
+            dialogueBoxImage.transform.eulerAngles = new Vector3(0, 0, 0);
+            nameText.transform.eulerAngles = new Vector3(0, 0, 0);
+            dialogueText.transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        else if (nameIndex == 1) 
+        {
+            dialogueBoxImage.transform.eulerAngles = new Vector3(0, 180, 0);
+            nameText.transform.eulerAngles = new Vector3(0, 180, 0);
+            dialogueText.transform.eulerAngles = new Vector3(0, 180, 0);
+        }
     }
 }

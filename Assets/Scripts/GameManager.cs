@@ -14,7 +14,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Text numberOfRatAtPlayerHouse;
     [SerializeField] Text numberOfRatAtEnemyHouse;
-    [SerializeField] Text winOrLose;
+
+    [SerializeField] GameObject resultBox;
+    [SerializeField] Text resultText;
 
     [SerializeField] Text timer;
     [SerializeField] GameObject spawner;
@@ -75,19 +77,19 @@ public class GameManager : MonoBehaviour
 
             if (ratAtPlayerHouse < ratAtEnemyHouse)
             {
-                winOrLose.text = "You win!! You threw rats more than your neighbor did!!";
+                ShowResult("Win");
 
                 SfxManager.instance.ManageSFX(3);
             }
             else if (ratAtPlayerHouse == ratAtEnemyHouse)
             {
-                winOrLose.text = "Draw";
+                ShowResult("Draw");
 
                 SfxManager.instance.ManageSFX(4);
             }
             else if (ratAtPlayerHouse > ratAtEnemyHouse)
             {
-                winOrLose.text = "You lose.. Your neighbor threw rats more than you did...";
+                ShowResult("Lose");
 
                 SfxManager.instance.ManageSFX(5);
             }
@@ -98,5 +100,28 @@ public class GameManager : MonoBehaviour
     {
         numberOfRatAtPlayerHouse.text = "" + ratAtPlayerHouse;
         numberOfRatAtEnemyHouse.text = "" + ratAtEnemyHouse;
+    }
+
+    void ShowResult(string result) 
+    {
+        resultBox.SetActive(true);
+
+        switch (result)
+        {
+            case "Win":
+                resultText.text = "You win!! You threw rats more than your neighbor did!!";
+                break;
+
+            case "Draw":
+                resultText.text = "Draw";
+                break;
+
+            case "Lose":
+                resultText.text = "You lose.. Your neighbor threw rats more than you did...";
+                break;
+
+            default:
+                break;
+        }
     }
 }
