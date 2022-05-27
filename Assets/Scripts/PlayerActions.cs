@@ -61,8 +61,8 @@ public class PlayerActions : MonoBehaviour
 
         ResourceImageUpdate clickedImage = inputManager.clickedGameObject.GetComponent<ResourceImageUpdate>();
         imageUpdater = clickedImage;
-        switch (clickedImage.chamberNumber)
 
+        switch (clickedImage.chamberNumber)
         {
             //playerChambers [0-6] <-P1-P7
             case ResourceImageUpdate.ChamberNumber.P1:

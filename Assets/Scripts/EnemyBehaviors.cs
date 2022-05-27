@@ -50,7 +50,7 @@ public class EnemyBehaviors : MonoBehaviour
 
                             SfxManager.instance.ManageSFX(2);
 
-                            DialogueManager.instance.StartDialogue(0, 1);// Show Player's dialogue "Don't throw kid"
+                            DialogueManager.instance.StartDialogue(0, 2);// Show Player's dialogue "Don't throw kid"
 
                             yield return new WaitForSeconds(0.5f);
                         }
