@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SfxManager : MonoBehaviour
@@ -23,7 +21,7 @@ public class SfxManager : MonoBehaviour
     public AudioClip[] sfxMusics;
     public bool isPlayingSfx;
 
-    public void ManageSFX(int num) // 0=Rat, 1=Cat, 2=Kid, 3=Win, 4= Draw, 5=Lose, 6=StartFight, 7=TimeOver
+    public void ManageSFX(int num) // num is index of sfxMusics: 0=Rat, 1=Cat, 2=Kid, 3=Win, 4= Draw, 5=Lose, 6=StartFight, 7=TimeOver
     {
         audioSource.PlayOneShot(this.sfxMusics[num]);
     }

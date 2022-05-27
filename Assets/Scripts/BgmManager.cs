@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BgmManager : MonoBehaviour
@@ -24,7 +22,7 @@ public class BgmManager : MonoBehaviour
     public AudioClip[] backGroundMusics;
     public bool isPlayingBgm;
 
-    public void ManageBGM(string action, int num) // 0=BgmStart, 1=BgmPlay, 2=BgmEnd
+    public void ManageBGM(string action, int num) // num is index of backGroundMusics: 0=BgmStart, 1=BgmPlay, 2=BgmEnd
     {
         audioSource.clip = this.backGroundMusics[num];
 
