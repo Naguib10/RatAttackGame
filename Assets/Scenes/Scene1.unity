@@ -3045,19 +3045,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '*Click Mouse Left Button to Catch Rat, Cat and  Kid
-
-
-    * Keep press
-    "1" + Click Mouse Left Button to Throw Rat
-
-
-    * Keep press "2" + Click Mouse
-    Left Button to Throw Cat
-
-
-    * Keep press "3" + Click Mouse Left Button to
-    Throw Kid'
+  m_Text: "* For Win: Player needs to throw more rats to neighbor's house than the
+    Neighbor does.\n\n* Similar to rock-paper-scissors, Rat nullifies Kid,  Cat nullifies
+    Rat, and Kid nullifies Cat.  \n\n# To Catch Rat / Cat / Kid, Click Mouse-Left-Button\n#
+    To Throw Rat, Press \"1\" + Mouse-Left-Button\n# To Throw Cat, Press \"2\" +
+    Mouse-Left-Button\n# To Throw Kid, Press \"3\" + Mouse-Left-Button"
 --- !u!222 &1037453508
 CanvasRenderer:
   m_ObjectHideFlags: 0
