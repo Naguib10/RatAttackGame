@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         ratAtPlayerHouse = 0;
         ratAtEnemyHouse = 0;
         timeRemaining = 60.00f;
-
+        
         BgmManager.instance.ManageBGM("Play", 0);
 
         SfxManager.instance.ManageSFX(6);

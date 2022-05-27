@@ -21,11 +21,16 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] GameObject dialogueBox;
     [SerializeField] Text nameText;
     [SerializeField] Text dialogueText;
-
+    
+    public  bool isDialogueStarted;
     public Dialogue dialogue;
 
     public void StartDialogue(int nameIndex, int textIndex) // nameIndex: 0=Player, 1=NPC,  textIndex: Please check the inspecter on Unity
     {
+        dialogueBox.SetActive(true);
+
+        isDialogueStarted = true;
+        
         nameText.text = dialogue.name[nameIndex];
         dialogueText.text = dialogue.sentences[textIndex];
 
