@@ -25,7 +25,7 @@ public class DialogueManager : MonoBehaviour
     public  bool isDialogueStarted;
     public Dialogue dialogue;
 
-    public void StartDialogue(int nameIndex, int textIndex) // nameIndex: 0=Player, 1=NPC,  textIndex: Please check the inspecter on Unity
+    public void StartDialogue(int nameIndex, int textIndex) // nameIndex: 0=Player, 1=Nieghbor,  textIndex: Please check the inspecter on Unity
     {
         dialogueBox.SetActive(true);
 
@@ -40,11 +40,11 @@ public class DialogueManager : MonoBehaviour
             nameText.transform.eulerAngles = new Vector3(0, 0, 0);
             dialogueText.transform.eulerAngles = new Vector3(0, 0, 0);
         }
-        else if (nameIndex == 1) 
+        else if (nameIndex == 1) // nameText[nameIndex] : 0="You:", 1="Neighbor:"
         {
-            dialogueBox.transform.eulerAngles = new Vector3(0, 180, 0);
-            nameText.transform.eulerAngles = new Vector3(0, 360, 0);
-            dialogueText.transform.eulerAngles = new Vector3(0, 360, 0);
+            dialogueBox.transform.eulerAngles = new Vector3(0, 180, 0);//Rotate Y by 180 degrees to change speech bubble view
+            nameText.transform.eulerAngles = new Vector3(0, 360, 0);//Rotate Y by 360 degrees to change nameText view
+            dialogueText.transform.eulerAngles = new Vector3(0, 360, 0);//Rotate Y by 360 degrees to change dialogueText view
         }
     }
 }

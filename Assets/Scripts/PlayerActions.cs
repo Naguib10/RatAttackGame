@@ -50,7 +50,7 @@ public class PlayerActions : MonoBehaviour
                 break;
 
             default:
-                Debug.Log("Nothing clicked");
+                Debug.Log("Clicked something");
                 break;
         }
 
@@ -124,7 +124,6 @@ public class PlayerActions : MonoBehaviour
                 break;
 
             default:
-                //other more
                 break;
         }
 

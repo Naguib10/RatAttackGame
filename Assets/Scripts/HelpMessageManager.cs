@@ -31,11 +31,6 @@ public class HelpMessageManager : MonoBehaviour
     public HelpMessages helpMessages;
     public float startTime;
 
-    public void Start()
-    {
-        //startTime = Time.realtimeSinceStartup;
-    }
-
     public void Update()
     {
         HideShortHelp(1.0f);
