@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
         BgmManager.instance.ManageBGM("Play", 0);
 
         SfxManager.instance.ManageSFX(6);
-
     }
 
     void Update()
