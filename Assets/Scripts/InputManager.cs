@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour
 {
@@ -18,7 +15,7 @@ public class InputManager : MonoBehaviour
             clickedGameObject = null;
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit2d = Physics2D.Raycast(ray.origin, ray.direction);// No need "(Vector2)" in front of ray
+            RaycastHit2D hit2d = Physics2D.Raycast(ray.origin, ray.direction);
 
             if (hit2d)
             {
