@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBehaviors : MonoBehaviour
@@ -7,7 +8,10 @@ public class EnemyBehaviors : MonoBehaviour
     [SerializeField] PlayerActions playerActions;
     [SerializeField] ResourceImageUpdate resourceImageUpdate;
     
-    public float interval;
+    public float intervalToFetchPlayerStats;
+    public float intervalForEnemyActions;
+    public float MinimumintervalForEnemyActions;
+    public float intervalOffset;
 
     public int enemyRatResources;
     public int enemyCatResources;
@@ -26,13 +30,17 @@ public class EnemyBehaviors : MonoBehaviour
     {
         while (gameManager.isGameFinished == false)
         {
-            interval = 4.0f;// Every interval (seconds), Enemy fetch the Player's stats for each resource.
+            intervalToFetchPlayerStats = 4.0f;// Every interval (seconds), Enemy fetch the Player's stats for each resource.
+            MinimumintervalForEnemyActions = 0.5f;// Every interval (seconds), Enemy fetch the Player's stats for each resource.
+
+            intervalForEnemyActions = (intervalToFetchPlayerStats / 5); // 5 is the number of interbals after Enemy threw resources
+            intervalOffset = Mathf.Abs(intervalForEnemyActions - MinimumintervalForEnemyActions);
 
             enemyRatResources = playerActions.ratCounter;
             enemyCatResources = playerActions.catCounter;
             enemyKidResources = playerActions.kidCounter;
 
-            yield return new WaitForSeconds(interval);
+            yield return new WaitForSeconds(intervalToFetchPlayerStats);
 
             for (int i = 0; i < playerActions.playerChambers.Length; i++)
             {
@@ -52,7 +60,7 @@ public class EnemyBehaviors : MonoBehaviour
 
                             DialogueManager.instance.StartDialogue(0, 2);// Show Player's dialogue "Don't throw kid"
 
-                            yield return new WaitForSeconds(0.5f);
+                            yield return new WaitForSeconds(Random.Range(MinimumintervalForEnemyActions - intervalOffset, MinimumintervalForEnemyActions + intervalOffset));
                         }
                         break;
 
@@ -67,7 +75,7 @@ public class EnemyBehaviors : MonoBehaviour
 
                             DialogueManager.instance.StartDialogue(0, 0);// Show Player's dialogue "Don't throw rat"
 
-                            yield return new WaitForSeconds(0.5f);
+                            yield return new WaitForSeconds(Random.Range(MinimumintervalForEnemyActions - intervalOffset, MinimumintervalForEnemyActions + intervalOffset));
                         }
                         break;
 
@@ -82,7 +90,7 @@ public class EnemyBehaviors : MonoBehaviour
 
                             DialogueManager.instance.StartDialogue(0, 0);// Show Player's dialogue "Don't throw rat"
 
-                            yield return new WaitForSeconds(0.5f);
+                            yield return new WaitForSeconds(Random.Range(MinimumintervalForEnemyActions - intervalOffset, MinimumintervalForEnemyActions + intervalOffset));
                         }
                         break;
 
@@ -108,7 +116,7 @@ public class EnemyBehaviors : MonoBehaviour
 
                             DialogueManager.instance.StartDialogue(0, 1);// Show Player's dialogue "Don't throw cat"
 
-                            yield return new WaitForSeconds(0.5f);
+                            yield return new WaitForSeconds(Random.Range(MinimumintervalForEnemyActions - intervalOffset, MinimumintervalForEnemyActions + intervalOffset));
                         }
                         break;
 
@@ -128,7 +136,7 @@ public class EnemyBehaviors : MonoBehaviour
 
                             DialogueManager.instance.StartDialogue(0, 1);// Show Player's dialogue "Don't throw cat"
 
-                            yield return new WaitForSeconds(0.5f);
+                            yield return new WaitForSeconds(Random.Range(MinimumintervalForEnemyActions - intervalOffset, MinimumintervalForEnemyActions + intervalOffset));
                         }
                         break;
 
