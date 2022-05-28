@@ -1877,7 +1877,10 @@ MonoBehaviour:
   gameManager: {fileID: 1670662510}
   playerActions: {fileID: 159826538}
   resourceImageUpdate: {fileID: 1972110200}
-  interval: 0
+  intervalToFetchPlayerStats: 0
+  intervalForEnemyActions: 0
+  MinimumintervalForEnemyActions: 0
+  intervalOffset: 0
   enemyRatResources: 0
   enemyCatResources: 0
   enemyKidResources: 0
