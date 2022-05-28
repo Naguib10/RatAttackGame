@@ -40,7 +40,8 @@ public class GameResources : MonoBehaviour
         if (transform.position.x > 0)
         {
             rb.velocity = new Vector2(-speed, 0);
-        } else if (transform.position.x < 0)
+        }
+        else if (transform.position.x < 0)
         {
             rb.velocity = new Vector2(speed, 0);
         }
