@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class ResourceImageUpdate : MonoBehaviour
 {
-    [SerializeField] InputManager inputManager;
     [SerializeField] GameManager gameManager;
 
     public Image imageInHouse = null;
@@ -26,11 +25,11 @@ public class ResourceImageUpdate : MonoBehaviour
         {
             imageInHouse.sprite = ratSprite;
 
-            if (inputManager.clickedGameObject.tag == "PlayerChamber")
+            if (InputManager.instance.clickedGameObject.tag == "PlayerChamber")
             {
                 gameManager.ratAtPlayerHouse++;
             }
-            else if (inputManager.clickedGameObject.tag == "EnemyChamber")
+            else if (InputManager.instance.clickedGameObject.tag == "EnemyChamber")
             {
                 gameManager.ratAtEnemyHouse++;
 
@@ -41,11 +40,11 @@ public class ResourceImageUpdate : MonoBehaviour
         {
             imageInHouse.sprite = ratSprite;
 
-            if (inputManager.clickedGameObject.tag == "PlayerChamber")
+            if (InputManager.instance.clickedGameObject.tag == "PlayerChamber")
             {
                 gameManager.ratAtPlayerHouse++;
             }
-            else if (inputManager.clickedGameObject.tag == "EnemyChamber")
+            else if (InputManager.instance.clickedGameObject.tag == "EnemyChamber")
             {
                 gameManager.ratAtEnemyHouse++;
 
@@ -70,14 +69,14 @@ public class ResourceImageUpdate : MonoBehaviour
         {
             imageInHouse.sprite = catSprite;
 
-            if (inputManager.clickedGameObject.tag == "PlayerChamber" && gameManager.ratAtPlayerHouse > 0)
+            if (InputManager.instance.clickedGameObject.tag == "PlayerChamber" && gameManager.ratAtPlayerHouse > 0)
             {
                 gameManager.ratAtPlayerHouse--;
 
                 DialogueManager.instance.StartDialogue(1, 1);// Show NPC's dialogue "Don't throw cat"
 
             }
-            else if (inputManager.clickedGameObject.tag == "EnemyChamber" && gameManager.ratAtEnemyHouse > 0)
+            else if (InputManager.instance.clickedGameObject.tag == "EnemyChamber" && gameManager.ratAtEnemyHouse > 0)
             {
                 gameManager.ratAtEnemyHouse--;
             }
@@ -86,7 +85,7 @@ public class ResourceImageUpdate : MonoBehaviour
         {
             imageInHouse.sprite = catSprite;
 
-            if (inputManager.clickedGameObject.tag == "PlayerChamber") 
+            if (InputManager.instance.clickedGameObject.tag == "PlayerChamber") 
             {
                 DialogueManager.instance.StartDialogue(1, 1);// Show NPC's dialogue "Don't throw cat"
             }
@@ -101,7 +100,7 @@ public class ResourceImageUpdate : MonoBehaviour
         {
             imageInHouse.sprite = kidSprite;
 
-            if (inputManager.clickedGameObject.tag == "EnemyChamber") 
+            if (InputManager.instance.clickedGameObject.tag == "EnemyChamber") 
             {
                 DialogueManager.instance.StartDialogue(1, 2);// Show NPC's dialogue "Don't throw kid"
             }

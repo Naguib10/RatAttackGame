@@ -3,7 +3,9 @@ using UnityEngine;
 public class PlayerActions : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
-    [SerializeField] InputManager inputManager;
+    //[SerializeField] InputManager inputManager;
+
+    public Resource[] resourceDatas;
 
     public int ratCounter;
     public int catCounter;
@@ -24,13 +26,15 @@ public class PlayerActions : MonoBehaviour
     public void Collect() 
     {
 
-        GameResources gameResources = inputManager.clickedGameObject.GetComponent<GameResources>();
+        GameResources gameResources = InputManager.instance.clickedGameObject.GetComponent<GameResources>();
 
         switch (gameResources.gameResourcesTypes)
         {
             case GameResources.GameResourcesTypes.Rat:
                 ratCounter++;
                 gameManager.ratCounterText.text = "" + ratCounter;
+
+                InventoryManager.instance.AddResourceIntoInventory(resourceDatas[0]);//resourceDatas[0] = Rat_I
 
                 SfxManager.instance.ManageSFX(0);
                 break;
@@ -39,12 +43,16 @@ public class PlayerActions : MonoBehaviour
                 catCounter++;
                 gameManager.catCounterText.text = "" + catCounter;
 
+                InventoryManager.instance.AddResourceIntoInventory(resourceDatas[1]);//resourceDatas[1] = Cat_I
+
                 SfxManager.instance.ManageSFX(1);
                 break;
 
             case GameResources.GameResourcesTypes.Kid:
                 kidCounter++;
                 gameManager.kidCounterText.text = "" + kidCounter;
+
+                InventoryManager.instance.AddResourceIntoInventory(resourceDatas[2]);//resourceDatas[2] = Kid_I
 
                 SfxManager.instance.ManageSFX(2);
                 break;
@@ -59,7 +67,7 @@ public class PlayerActions : MonoBehaviour
     public void Throw() 
     {
 
-        ResourceImageUpdate clickedImage = inputManager.clickedGameObject.GetComponent<ResourceImageUpdate>();
+        ResourceImageUpdate clickedImage = InputManager.instance.clickedGameObject.GetComponent<ResourceImageUpdate>();
         imageUpdater = clickedImage;
 
         switch (clickedImage.chamberNumber)
@@ -139,6 +147,8 @@ public class PlayerActions : MonoBehaviour
                 ratCounter--;
                 gameManager.ratCounterText.text = "" + ratCounter;
 
+                InventoryManager.instance.RemoveResourceFromInventory(resourceDatas[0]);//resourceDatas[0] = Rat_I
+
                 imageUpdater.PlaceRat();
             }
         }
@@ -153,6 +163,8 @@ public class PlayerActions : MonoBehaviour
                 catCounter--;
                 gameManager.catCounterText.text = "" + catCounter;
 
+                InventoryManager.instance.RemoveResourceFromInventory(resourceDatas[1]);//resourceDatas[1] = Cat_I
+
                 imageUpdater.PlaceCat();
             }
         }
@@ -166,6 +178,8 @@ public class PlayerActions : MonoBehaviour
             {
                 kidCounter--;
                 gameManager.kidCounterText.text = "" + kidCounter;
+
+                InventoryManager.instance.RemoveResourceFromInventory(resourceDatas[2]);//resourceDatas[2] = Kid_I
 
                 imageUpdater.PlaceKid();
             }

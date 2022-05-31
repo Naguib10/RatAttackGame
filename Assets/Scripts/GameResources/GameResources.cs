@@ -31,7 +31,6 @@ public class GameResources : MonoBehaviour
         }
     }
 
-
     public void MoveAround()
     {
         speed = Random.Range(3.0f, 10.0f);
@@ -46,21 +45,6 @@ public class GameResources : MonoBehaviour
             rb.velocity = new Vector2(speed, 0);
         }
     }
-
-    /*
-    public void DestroyResource()
-    {
-        // destroy resource either in house or pick up from street
-
-        Destroy(this.gameObject);
-    }
-
-    public void PlaceInHouse()
-    {
-        //placing the object in either house by the player
-    }
-    */
-
 
     public enum GameResourcesTypes
     {

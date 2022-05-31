@@ -19,8 +19,6 @@ public class HelpMessageManager : MonoBehaviour
         instance = this;
     }
     #endregion
-
-    //[SerializeField] PlayerActions playerActions;
     
     [SerializeField] GameObject howToPlayBox;
     [SerializeField] Text howToPlayMessageText;
