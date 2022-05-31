@@ -16,6 +16,10 @@ PrefabInstance:
       value: GameResources
       objectReference: {fileID: 0}
     - target: {fileID: 8498820701123773320, guid: 98f611b45d3c5d448bfa8b5ec991d5b2, type: 3}
+      propertyPath: resourceData
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ff71baa52002254a802242549ba1e8c, type: 2}
+    - target: {fileID: 8498820701123773320, guid: 98f611b45d3c5d448bfa8b5ec991d5b2, type: 3}
       propertyPath: gameResourcesTypes
       value: 2
       objectReference: {fileID: 0}

@@ -4,6 +4,8 @@ public class GameResources : MonoBehaviour
 {
     public GameObject resourcePrefab;
 
+    public Resource resourceData;//test
+
     public GameResourcesTypes gameResourcesTypes;
 
     public float spawnTime;

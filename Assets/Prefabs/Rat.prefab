@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourcePrefab: {fileID: 8498820701123773301}
+  resourceData: {fileID: 11400000, guid: e07125009adc2a444baeffa283c86f99, type: 2}
   gameResourcesTypes: 0
   spawnTime: 1
   speed: 9.248713
