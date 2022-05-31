@@ -14,6 +14,8 @@ public class SfxManager : MonoBehaviour
         }
 
         instance = this;
+
+        DontDestroyOnLoad(gameObject);// not delete data
     }
     #endregion
 
