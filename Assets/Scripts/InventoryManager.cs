@@ -127,7 +127,7 @@ public class InventoryManager : MonoBehaviour
                 {
                     resourceNumbers[i]--;
                     
-                    /*
+                    
                     if (resources[i].resourceName == "Rat_I")//Rat_I
                     {
                         if (playerActions.ratCounter == 0)
@@ -166,7 +166,7 @@ public class InventoryManager : MonoBehaviour
                             gameManager.kidCounterText.text = "" + playerActions.kidCounter;
                         }
                     }
-                    */
+                    
                     
 
                     
