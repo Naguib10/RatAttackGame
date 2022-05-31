@@ -19,11 +19,15 @@ public class InventoryManager : MonoBehaviour
 
         instance = this;
 
-        DontDestroyOnLoad(gameObject);// not deleate
+        DontDestroyOnLoad(gameObject);// not delete data
     }
     #endregion
 
     //public bool isPaused;
+
+    [SerializeField] PlayerActions playerActions;
+    [SerializeField] GameManager gameManager;
+
 
     public List<Resource> resources = new List<Resource>(); // which type of resouse player has
     public List<int> resourceNumbers = new List<int>(); // how many resources player has
@@ -73,6 +77,7 @@ public class InventoryManager : MonoBehaviour
             }
             else // some remove resource
             {
+                
                 //Update slots resource image
                 slots[i].transform.GetChild(0).GetComponent<Image>().color = new Color(1, 1, 1, 0);
                 slots[i].transform.GetChild(0).GetComponent<Image>().sprite = null;
@@ -83,6 +88,8 @@ public class InventoryManager : MonoBehaviour
 
                 //Update slots remove button image
                 slots[i].transform.GetChild(2).gameObject.SetActive(false);
+                
+
             }
         }
     }
@@ -119,14 +126,57 @@ public class InventoryManager : MonoBehaviour
                 if (resource == resources[i])
                 {
                     resourceNumbers[i]--;
+                    
+                    
+                    if (resources[i].resourceName == "Rat_I")//Rat_I
+                    {
+                        if (playerActions.ratCounter == 0)
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            playerActions.ratCounter--;
+                            gameManager.ratCounterText.text = "" + playerActions.ratCounter;
+                        }
+                    }
 
+                    if (resources[i].resourceName == "Cat_I")//Cat_I
+                    {
+                        if (playerActions.catCounter == 0)
+                        {
+                            return;
+                        }
+                        else 
+                        {
+                            playerActions.catCounter--;
+                            gameManager.catCounterText.text = "" + playerActions.catCounter;
+                        }
+                    }
+
+                    if (resources[i].resourceName == "Kid_I")//Kid_I
+                    {
+                        if (playerActions.kidCounter == 0)
+                        {
+                            return;
+                        }
+                        else 
+                        {
+                            playerActions.kidCounter--;
+                            gameManager.kidCounterText.text = "" + playerActions.kidCounter;
+                        }
+                    }
+                    
+                    
+
+                    
                     if (resourceNumbers[i] == 0)
                     {
                         // it needs to remove this
                         resources.Remove(resource);
                         resourceNumbers.Remove(resourceNumbers[i]);
-
                     }
+                    
                 }
             }
         }

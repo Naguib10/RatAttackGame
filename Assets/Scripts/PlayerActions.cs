@@ -3,9 +3,10 @@ using UnityEngine;
 public class PlayerActions : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
+    [SerializeField] GameResources gameResources;
     //[SerializeField] InputManager inputManager;
 
-    public Resource[] resourceDatas;
+    //public Resource[] resourceDatas;
 
     public int ratCounter;
     public int catCounter;
@@ -34,7 +35,7 @@ public class PlayerActions : MonoBehaviour
                 ratCounter++;
                 gameManager.ratCounterText.text = "" + ratCounter;
 
-                InventoryManager.instance.AddResourceIntoInventory(resourceDatas[0]);//resourceDatas[0] = Rat_I
+                InventoryManager.instance.AddResourceIntoInventory(gameResources.resourceData);//resourceDatas[0] = Rat_I
 
                 SfxManager.instance.ManageSFX(0);
                 break;
@@ -43,7 +44,7 @@ public class PlayerActions : MonoBehaviour
                 catCounter++;
                 gameManager.catCounterText.text = "" + catCounter;
 
-                InventoryManager.instance.AddResourceIntoInventory(resourceDatas[1]);//resourceDatas[1] = Cat_I
+                InventoryManager.instance.AddResourceIntoInventory(gameResources.resourceData);//resourceDatas[1] = Cat_I
 
                 SfxManager.instance.ManageSFX(1);
                 break;
@@ -52,7 +53,7 @@ public class PlayerActions : MonoBehaviour
                 kidCounter++;
                 gameManager.kidCounterText.text = "" + kidCounter;
 
-                InventoryManager.instance.AddResourceIntoInventory(resourceDatas[2]);//resourceDatas[2] = Kid_I
+                InventoryManager.instance.AddResourceIntoInventory(gameResources.resourceData);//resourceDatas[2] = Kid_I
 
                 SfxManager.instance.ManageSFX(2);
                 break;
@@ -147,7 +148,7 @@ public class PlayerActions : MonoBehaviour
                 ratCounter--;
                 gameManager.ratCounterText.text = "" + ratCounter;
 
-                InventoryManager.instance.RemoveResourceFromInventory(resourceDatas[0]);//resourceDatas[0] = Rat_I
+                InventoryManager.instance.RemoveResourceFromInventory(gameResources.resourceData);//resourceDatas[0] = Rat_I
 
                 imageUpdater.PlaceRat();
             }
@@ -163,7 +164,7 @@ public class PlayerActions : MonoBehaviour
                 catCounter--;
                 gameManager.catCounterText.text = "" + catCounter;
 
-                InventoryManager.instance.RemoveResourceFromInventory(resourceDatas[1]);//resourceDatas[1] = Cat_I
+                InventoryManager.instance.RemoveResourceFromInventory(gameResources.resourceData);//resourceDatas[1] = Cat_I
 
                 imageUpdater.PlaceCat();
             }
@@ -179,7 +180,7 @@ public class PlayerActions : MonoBehaviour
                 kidCounter--;
                 gameManager.kidCounterText.text = "" + kidCounter;
 
-                InventoryManager.instance.RemoveResourceFromInventory(resourceDatas[2]);//resourceDatas[2] = Kid_I
+                InventoryManager.instance.RemoveResourceFromInventory(gameResources.resourceData);//resourceDatas[2] = Kid_I
 
                 imageUpdater.PlaceKid();
             }

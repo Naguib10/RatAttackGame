@@ -15,6 +15,8 @@ public class BgmManager : MonoBehaviour
         }
         
         instance = this;
+
+        DontDestroyOnLoad(gameObject);// not delete data
     }
     #endregion
    
