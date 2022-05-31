@@ -77,6 +77,7 @@ public class InventoryManager : MonoBehaviour
             }
             else // some remove resource
             {
+                
                 //Update slots resource image
                 slots[i].transform.GetChild(0).GetComponent<Image>().color = new Color(1, 1, 1, 0);
                 slots[i].transform.GetChild(0).GetComponent<Image>().sprite = null;
@@ -87,6 +88,8 @@ public class InventoryManager : MonoBehaviour
 
                 //Update slots remove button image
                 slots[i].transform.GetChild(2).gameObject.SetActive(false);
+                
+
             }
         }
     }
@@ -123,8 +126,8 @@ public class InventoryManager : MonoBehaviour
                 if (resource == resources[i])
                 {
                     resourceNumbers[i]--;
-
-                    if (resource == resources[0])//Rat_I
+                    
+                    if (resources[i].resourceName == "Rat_I")//Rat_I
                     {
                         if (playerActions.ratCounter == 0)
                         {
@@ -136,14 +139,8 @@ public class InventoryManager : MonoBehaviour
                             gameManager.ratCounterText.text = "" + playerActions.ratCounter;
                         }
                     }
-                    /*else if (resourceNumbers[i] == 0)
-                    {
-                        // it needs to remove this
-                        resources.Remove(resource);
-                        resourceNumbers.Remove(resourceNumbers[i]);
-                    }*/
 
-                    if (resource == resources[1])
+                    if (resources[i].resourceName == "Cat_I")//Cat_I
                     {
                         if (playerActions.catCounter == 0)
                         {
@@ -155,14 +152,8 @@ public class InventoryManager : MonoBehaviour
                             gameManager.catCounterText.text = "" + playerActions.catCounter;
                         }
                     }
-                    /*else if (resourceNumbers[i] == 0)
-                    {
-                        // it needs to remove this
-                        resources.Remove(resource);
-                        resourceNumbers.Remove(resourceNumbers[i]);
-                    }*/
 
-                    if (resource == resources[2])
+                    if (resources[i].resourceName == "Kid_I")//Kid_I
                     {
                         if (playerActions.kidCounter == 0)
                         {
@@ -174,12 +165,7 @@ public class InventoryManager : MonoBehaviour
                             gameManager.kidCounterText.text = "" + playerActions.kidCounter;
                         }
                     }
-                    /*else if(resourceNumbers[i] == 0)
-                    {
-                        // it needs to remove this
-                        resources.Remove(resource);
-                        resourceNumbers.Remove(resourceNumbers[i]);
-                    }*/
+                    
 
                     
                     if (resourceNumbers[i] == 0)
