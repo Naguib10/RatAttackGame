@@ -3,8 +3,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] InputManager inputManager;
-
     public Text ratCounterText;
     public Text catCounterText;
     public Text kidCounterText;
@@ -19,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text resultText;
 
     [SerializeField] Text timer;
+
     [SerializeField] GameObject spawner;
 
     public float timeRemaining;
@@ -38,8 +37,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (!isGameFinished)
-        {   
-            inputManager.ControlScheme();
+        {
+            InputManager.instance.ControlScheme();
 
             RatCounterUpdate();
 

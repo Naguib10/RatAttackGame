@@ -2,12 +2,31 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+    #region Singleton
+    public static InputManager instance;
+
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("More than one instance of InputManager found!");
+            return;
+        }
+
+        instance = this;
+    }
+    #endregion
+
+
     [SerializeField] PlayerActions playerActions;
 
     public GameObject clickedGameObject;
     public string whichChamber;
 
+    public bool isPaused;
+
     private int hKeyHitNumber;
+    private int pKeyHitNumber;
 
     public void ControlScheme() 
     {
@@ -26,6 +45,7 @@ public class InputManager : MonoBehaviour
                 if (clickedGameObject.tag == "GameResources")
                 {
                     playerActions.Collect();
+
                     Destroy(clickedGameObject);
                 }
                 else if (clickedGameObject.tag == "PlayerChamber" || clickedGameObject.tag == "EnemyChamber")
@@ -38,12 +58,13 @@ public class InputManager : MonoBehaviour
                     {
                         whichChamber = "EnemyChamber";
                     }
+
                     playerActions.Throw();
                 }
             }
         }
 
-        if (Input.GetMouseButtonDown(1)) // When clicked Mouse-Right-Button
+        if (Input.GetMouseButtonDown(1)) // When clicked Mouse-Right-Button on game object, it show short discription.
         {
             clickedGameObject = null;
 
@@ -98,23 +119,41 @@ public class InputManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.H))// ShowHelp:How to Play
         {
             hKeyHitNumber++;
 
             if (hKeyHitNumber % 2 != 0) 
             {
-                HelpMessageManager.instance.ToggleHelpMessageHowToPlay("Show");// ShowHelp:How to Play
+                HelpMessageManager.instance.ToggleHelpMessageHowToPlay("Show");
 
-                //UnityEditor.EditorApplication.isPaused = true; // Pause current gameplay
+                Time.timeScale = 0.0f; // time stop
             }
             else
             {
                 HelpMessageManager.instance.ToggleHelpMessageHowToPlay("Hide");
 
-                //UnityEditor.EditorApplication.isPaused = false;
-                //UnityEditor.EditorApplication.isPlaying = true;
+                Time.timeScale = 1.0f; // real time is 1.0f
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))// Pause gameplay
+        {
+            pKeyHitNumber ++;
+
+            if (pKeyHitNumber % 2 != 0)
+            {
+                Time.timeScale = 0.0f; // time stop
+            }
+            else
+            {
+                Time.timeScale = 1.0f; // real time is 1.0f
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.I))//Show Inventory
+        {
+            InventoryUIManager.instance.InventoryUIControl();
         }
     }
 }
