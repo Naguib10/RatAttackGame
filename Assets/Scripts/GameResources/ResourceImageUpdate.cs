@@ -25,7 +25,7 @@ public class ResourceImageUpdate : MonoBehaviour
         {
             imageInHouse.sprite = ratSprite;
 
-            RemoveResourceFromInventory("Rat_I");// Added
+            RemoveResourceFromInventoryWhenTrowingResource("Rat_I");// Added
 
             if (InputManager.instance.clickedGameObject.tag == "PlayerChamber")
             {
@@ -42,7 +42,7 @@ public class ResourceImageUpdate : MonoBehaviour
         {
             imageInHouse.sprite = ratSprite;
 
-            RemoveResourceFromInventory("Rat_I");// Added
+            RemoveResourceFromInventoryWhenTrowingResource("Rat_I");// Added
 
             if (InputManager.instance.clickedGameObject.tag == "PlayerChamber")
             {
@@ -73,7 +73,7 @@ public class ResourceImageUpdate : MonoBehaviour
         {
             imageInHouse.sprite = catSprite;
 
-            RemoveResourceFromInventory("Cat_I");// Added
+            RemoveResourceFromInventoryWhenTrowingResource("Cat_I");// Added
 
             if (InputManager.instance.clickedGameObject.tag == "PlayerChamber" && gameManager.ratAtPlayerHouse > 0)
             {
@@ -91,7 +91,7 @@ public class ResourceImageUpdate : MonoBehaviour
         {
             imageInHouse.sprite = catSprite;
 
-            RemoveResourceFromInventory("Cat_I");// Added
+            RemoveResourceFromInventoryWhenTrowingResource("Cat_I");// Added
 
 
             if (InputManager.instance.clickedGameObject.tag == "PlayerChamber") 
@@ -109,7 +109,7 @@ public class ResourceImageUpdate : MonoBehaviour
         {
             imageInHouse.sprite = kidSprite;
 
-            RemoveResourceFromInventory("Kid_I");// Added
+            RemoveResourceFromInventoryWhenTrowingResource("Kid_I");// Added
 
             if (InputManager.instance.clickedGameObject.tag == "EnemyChamber") 
             {
@@ -120,7 +120,7 @@ public class ResourceImageUpdate : MonoBehaviour
         SfxManager.instance.ManageSFX(2);
     }
 
-    public void RemoveResourceFromInventory(string resourceName) //resourceName is either one of "Rat_I", "Cat_I" and "Kid_I" 
+    public void RemoveResourceFromInventoryWhenTrowingResource(string resourceName) //resourceName is either one of "Rat_I", "Cat_I" and "Kid_I" 
     {
         for (int i = 0; i < InventoryManager.instance.resources.Count; i++)
         {
