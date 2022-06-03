@@ -25,6 +25,8 @@ public class ResourceImageUpdate : MonoBehaviour
         {
             imageInHouse.sprite = ratSprite;
 
+            RemoveResourceFromInventory("Rat_I");// Added
+
             if (InputManager.instance.clickedGameObject.tag == "PlayerChamber")
             {
                 gameManager.ratAtPlayerHouse++;
@@ -39,6 +41,8 @@ public class ResourceImageUpdate : MonoBehaviour
         else if (imageInHouse.sprite.name == emptySprite.name)
         {
             imageInHouse.sprite = ratSprite;
+
+            RemoveResourceFromInventory("Rat_I");// Added
 
             if (InputManager.instance.clickedGameObject.tag == "PlayerChamber")
             {
@@ -69,6 +73,8 @@ public class ResourceImageUpdate : MonoBehaviour
         {
             imageInHouse.sprite = catSprite;
 
+            RemoveResourceFromInventory("Cat_I");// Added
+
             if (InputManager.instance.clickedGameObject.tag == "PlayerChamber" && gameManager.ratAtPlayerHouse > 0)
             {
                 gameManager.ratAtPlayerHouse--;
@@ -85,6 +91,9 @@ public class ResourceImageUpdate : MonoBehaviour
         {
             imageInHouse.sprite = catSprite;
 
+            RemoveResourceFromInventory("Cat_I");// Added
+
+
             if (InputManager.instance.clickedGameObject.tag == "PlayerChamber") 
             {
                 DialogueManager.instance.StartDialogue(1, 1);// Show NPC's dialogue "Don't throw cat"
@@ -100,6 +109,8 @@ public class ResourceImageUpdate : MonoBehaviour
         {
             imageInHouse.sprite = kidSprite;
 
+            RemoveResourceFromInventory("Kid_I");// Added
+
             if (InputManager.instance.clickedGameObject.tag == "EnemyChamber") 
             {
                 DialogueManager.instance.StartDialogue(1, 2);// Show NPC's dialogue "Don't throw kid"
@@ -107,6 +118,25 @@ public class ResourceImageUpdate : MonoBehaviour
         }
 
         SfxManager.instance.ManageSFX(2);
+    }
+
+    public void RemoveResourceFromInventory(string resourceName) //resourceName is either one of "Rat_I", "Cat_I" and "Kid_I" 
+    {
+        for (int i = 0; i < InventoryManager.instance.resources.Count; i++)
+        {
+            if (InventoryManager.instance.resources[i].resourceName == resourceName && InventoryManager.instance.resourceNumbers[i] >= 0)
+            {
+                InventoryManager.instance.resourceNumbers[i]--;
+            }
+            else if (InventoryManager.instance.resourceNumbers[i] < 0)
+            {
+                InventoryManager.instance.resources.Remove(InventoryManager.instance.resources[i]);
+                InventoryManager.instance.resourceNumbers.Remove(InventoryManager.instance.resourceNumbers[i]);
+            }
+
+            //If there is no resource in nventory
+            InventoryManager.instance.DisplayResourcesInInventory();
+        }
     }
 
     public enum ChamberNumber
