@@ -4191,7 +4191,9 @@ MonoBehaviour:
       nullifies Kid,  Cat nullifies Rat, and Kid nullifies Cat.  \r\n\r\n# To Catch
       Rat / Cat / Kid, Click Mouse-Left-Button\r\n# To Throw Rat, Press \"1\" + Mouse-Left-Button\r\n#
       To Throw Cat, Press \"2\" + Mouse-Left-Button\r\n# To Throw Kid, Press \"3\"
-      + Mouse-Left-Button"
+      + Mouse-Left-Button\n\n! Press \"P\" to Pause\n! Press \"I\" to Show Inventory\n!
+      Press \"H\" to show Rules\n! Press Mouse-Right-Button on Game Object to show
+      Short description"
     - "Click Mouse-Left-Button to Catch!\r"
     - The number of Rats which player caught
     - The number of Cats which player caught
@@ -4764,7 +4766,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActions: {fileID: 159826538}
   gameManager: {fileID: 1670662510}
-  inputManager: {fileID: 1630314552}
   resources:
   - {fileID: 11400000, guid: e07125009adc2a444baeffa283c86f99, type: 2}
   - {fileID: 11400000, guid: d508f414daf69154bbd533cadc27aad2, type: 2}
