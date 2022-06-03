@@ -125,26 +125,26 @@ public class InventoryManager : MonoBehaviour
                     //resourceNumbers[i]--;
 
 
-                    if (resources[i].resourceName == "Rat_I" && playerActions.ratCounter > 0)//Rat_I
+                    if (resources[i].resourceName == "Rat_I" && playerActions.ratCounter > 0 && resourceNumbers[i] > 0)//Rat_I
                     {
-                            playerActions.ratCounter--;
-                            gameManager.ratCounterText.text = "" + playerActions.ratCounter;
+                        playerActions.ratCounter--;
+                        gameManager.ratCounterText.text = "" + playerActions.ratCounter;
 
-                            resourceNumbers[i]--;
+                        resourceNumbers[i]--;
                     }
-                    else if (resources[i].resourceName == "Cat_I" && playerActions.catCounter > 0)//Cat_I
+                    else if (resources[i].resourceName == "Cat_I" && playerActions.catCounter > 0 && resourceNumbers[i] > 0)//Cat_I
                     {
-                            playerActions.catCounter--;
-                            gameManager.catCounterText.text = "" + playerActions.catCounter;
+                        playerActions.catCounter--;
+                        gameManager.catCounterText.text = "" + playerActions.catCounter;
 
-                            resourceNumbers[i]--;
+                        resourceNumbers[i]--;
                     }
-                    else if (resources[i].resourceName == "Kid_I" && playerActions.kidCounter > 0)//Kid_I
+                    else if (resources[i].resourceName == "Kid_I" && playerActions.kidCounter > 0 && resourceNumbers[i] > 0)//Kid_I
                     {
-                            playerActions.kidCounter--;
-                            gameManager.kidCounterText.text = "" + playerActions.kidCounter;
+                        playerActions.kidCounter--;
+                        gameManager.kidCounterText.text = "" + playerActions.kidCounter;
 
-                            resourceNumbers[i]--;
+                        resourceNumbers[i]--;
                     }
                     else if (resourceNumbers[i] == 0)
                     {
