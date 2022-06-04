@@ -23,13 +23,15 @@ public class EnemyBehaviors : MonoBehaviour
     public float intervalLong = 4.0f;  //How many seconds does it take for enemy to fetch Player's resource data.
     public float intervalShort = 0.5f; //How many seconds does it take for enemy's action between actions.
 
+    Coroutine lastCoroutine;
+
     private void Start()
     {
         enemyRatResources = 0;
         enemyCatResources = 0;
         enemyKidResources = 0;
-
-        StartCoroutine(EnemyBehaviorManager(intervalLong, intervalShort));
+        
+        lastCoroutine = StartCoroutine(EnemyBehaviorManager(x, y));
     }
 
     IEnumerator EnemyBehaviorManager(float intervalToFetchPlayerStats, float MinimumintervalForEnemyActions)
@@ -151,6 +153,15 @@ public class EnemyBehaviors : MonoBehaviour
                         break;
                 }
             }
+        }
+
+    }
+
+    public void StopEnemy()
+    {
+        if (gameManager.isGameFinished)
+        {
+            StopCoroutine(lastCoroutine);
         }
     }
 }

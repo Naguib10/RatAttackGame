@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public Text catCounterText;
     public Text kidCounterText;
 
+    public EnemyBehaviors enemyBehaviors;
+
     public int ratAtPlayerHouse;
     public int ratAtEnemyHouse;
 
@@ -77,6 +79,7 @@ public class GameManager : MonoBehaviour
         if (isGameFinished) 
         {
             Destroy(spawner);
+            enemyBehaviors.StopEnemy();
 
             nextLevelButton.SetActive(true);
 
