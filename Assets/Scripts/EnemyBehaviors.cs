@@ -17,21 +17,27 @@ public class EnemyBehaviors : MonoBehaviour
     private int enemyCatResources;
     private int enemyKidResources;
 
+    //public float intervalToFetchPlayerStats = 4.0f;// Every interval (seconds), Enemy fetch the Player's stats for each resource.
+    //public float MinimumintervalForEnemyActions = 0.5f;// Every interval (seconds), Enemy fetch the Player's stats for each resource.
+
+    public float x = 4.0f;
+    public float y = 0.5f;
+
     private void Start()
     {
         enemyRatResources = 0;
         enemyCatResources = 0;
         enemyKidResources = 0;
 
-        StartCoroutine(EnemyBehaviorManager());
+        StartCoroutine(EnemyBehaviorManager(x, y));
     }
 
-    IEnumerator EnemyBehaviorManager()
+    IEnumerator EnemyBehaviorManager(float intervalToFetchPlayerStats, float MinimumintervalForEnemyActions)
     {
         while (gameManager.isGameFinished == false)
         {
-            intervalToFetchPlayerStats = 4.0f;// Every interval (seconds), Enemy fetch the Player's stats for each resource.
-            MinimumintervalForEnemyActions = 0.5f;// Every interval (seconds), Enemy fetch the Player's stats for each resource.
+            //intervalToFetchPlayerStats = 4.0f;// Every interval (seconds), Enemy fetch the Player's stats for each resource.
+            //MinimumintervalForEnemyActions = 0.5f;// Every interval (seconds), Enemy fetch the Player's stats for each resource.
 
             intervalForEnemyActions = (intervalToFetchPlayerStats / 5); // 5 is the number of interbals after Enemy threw resources
             intervalOffset = Mathf.Abs(intervalForEnemyActions - MinimumintervalForEnemyActions);
