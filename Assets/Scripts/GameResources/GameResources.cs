@@ -4,7 +4,7 @@ public class GameResources : MonoBehaviour
 {
     public GameObject resourcePrefab;
 
-    public Resource resourceData;//test
+    public Resource resourceData;//
 
     public GameResourcesTypes gameResourcesTypes;
 

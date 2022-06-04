@@ -30,91 +30,94 @@ public class InputManager : MonoBehaviour
 
     public void ControlScheme() 
     {
-        if (Input.GetMouseButtonDown(0))// When clicked Mouse-Left-Button
+        if (!isPaused) 
         {
-
-            clickedGameObject = null;
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit2d = Physics2D.Raycast(ray.origin, ray.direction);
-
-            if (hit2d)
+            if (Input.GetMouseButtonDown(0))// When clicked Mouse-Left-Button
             {
-                clickedGameObject = hit2d.transform.gameObject;
 
-                if (clickedGameObject.tag == "GameResources")
+                clickedGameObject = null;
+
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit2d = Physics2D.Raycast(ray.origin, ray.direction);
+
+                if (hit2d)
                 {
-                    playerActions.Collect();
+                    clickedGameObject = hit2d.transform.gameObject;
 
-                    Destroy(clickedGameObject);
-                }
-                else if (clickedGameObject.tag == "PlayerChamber" || clickedGameObject.tag == "EnemyChamber")
-                {
-                    if (clickedGameObject.tag == "PlayerChamber")
+                    if (clickedGameObject.tag == "GameResources")
                     {
-                        whichChamber = "PlayerChamber";
-                    }
-                    else if (clickedGameObject.tag == "EnemyChamber")
-                    {
-                        whichChamber = "EnemyChamber";
-                    }
+                        playerActions.Collect();
 
-                    playerActions.Throw();
+                        Destroy(clickedGameObject);
+                    }
+                    else if (clickedGameObject.tag == "PlayerChamber" || clickedGameObject.tag == "EnemyChamber")
+                    {
+                        if (clickedGameObject.tag == "PlayerChamber")
+                        {
+                            whichChamber = "PlayerChamber";
+                        }
+                        else if (clickedGameObject.tag == "EnemyChamber")
+                        {
+                            whichChamber = "EnemyChamber";
+                        }
+
+                        playerActions.Throw();
+                    }
                 }
             }
-        }
 
-        if (Input.GetMouseButtonDown(1)) // When clicked Mouse-Right-Button on game object, it show short discription.
-        {
-            clickedGameObject = null;
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit2d = Physics2D.Raycast(ray.origin, ray.direction);
-
-            if (hit2d)
+            if (Input.GetMouseButtonDown(1)) // When clicked Mouse-Right-Button on game object, it show short discription.
             {
-                clickedGameObject = hit2d.transform.gameObject;
+                clickedGameObject = null;
 
-                switch (clickedGameObject.tag)
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit2d = Physics2D.Raycast(ray.origin, ray.direction);
+
+                if (hit2d)
                 {
-                    case "GameResources":
-                        HelpMessageManager.instance.ShowShortHelp(1);
-                        break;
+                    clickedGameObject = hit2d.transform.gameObject;
 
-                    case "RatCounter":
-                        HelpMessageManager.instance.ShowShortHelp(2);
-                        break;
+                    switch (clickedGameObject.tag)
+                    {
+                        case "GameResources":
+                            HelpMessageManager.instance.ShowShortHelp(1);
+                            break;
 
-                    case "CatCounter":
-                        HelpMessageManager.instance.ShowShortHelp(3);
-                        break;
+                        case "RatCounter":
+                            HelpMessageManager.instance.ShowShortHelp(2);
+                            break;
 
-                    case "KidCounter":
-                        HelpMessageManager.instance.ShowShortHelp(4);
-                        break;
+                        case "CatCounter":
+                            HelpMessageManager.instance.ShowShortHelp(3);
+                            break;
 
-                    case "Timer":
-                        HelpMessageManager.instance.ShowShortHelp(5);
-                        break;
+                        case "KidCounter":
+                            HelpMessageManager.instance.ShowShortHelp(4);
+                            break;
 
-                    case "PlayerHousesRatCounter":
-                        HelpMessageManager.instance.ShowShortHelp(6);
-                        break;
+                        case "Timer":
+                            HelpMessageManager.instance.ShowShortHelp(5);
+                            break;
 
-                    case "EnemyHousesRatCounter":
-                        HelpMessageManager.instance.ShowShortHelp(7);
-                        break;
+                        case "PlayerHousesRatCounter":
+                            HelpMessageManager.instance.ShowShortHelp(6);
+                            break;
 
-                    case "PlayerChamber":
-                        HelpMessageManager.instance.ShowShortHelp(8);
-                        break;
+                        case "EnemyHousesRatCounter":
+                            HelpMessageManager.instance.ShowShortHelp(7);
+                            break;
 
-                    case "EnemyChamber":
-                        HelpMessageManager.instance.ShowShortHelp(9);
-                        break;
+                        case "PlayerChamber":
+                            HelpMessageManager.instance.ShowShortHelp(8);
+                            break;
 
-                    default:
-                        break;
+                        case "EnemyChamber":
+                            HelpMessageManager.instance.ShowShortHelp(9);
+                            break;
+
+                        default:
+                            break;
+                    }
                 }
             }
         }
@@ -128,30 +131,36 @@ public class InputManager : MonoBehaviour
                 HelpMessageManager.instance.ToggleHelpMessageHowToPlay("Show");
 
                 Time.timeScale = 0.0f; // time stop
+
+                isPaused = true;//
             }
             else
             {
                 HelpMessageManager.instance.ToggleHelpMessageHowToPlay("Hide");
 
                 Time.timeScale = 1.0f; // real time is 1.0f
+
+                isPaused = false;//
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.P))// Pause gameplay
+        else if (Input.GetKeyDown(KeyCode.P))// Pause gameplay
         {
             pKeyHitNumber ++;
 
             if (pKeyHitNumber % 2 != 0)
             {
                 Time.timeScale = 0.0f; // time stop
+
+                isPaused = true;//
             }
             else
             {
                 Time.timeScale = 1.0f; // real time is 1.0f
+
+                isPaused = false;//
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.I))//Show Inventory
+        else if (Input.GetKeyDown(KeyCode.I))//Show Inventory
         {
             InventoryUIManager.instance.InventoryUIControl();
         }

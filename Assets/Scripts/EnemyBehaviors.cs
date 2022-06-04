@@ -13,9 +13,9 @@ public class EnemyBehaviors : MonoBehaviour
     public float MinimumintervalForEnemyActions;
     public float intervalOffset;
 
-    public int enemyRatResources;
-    public int enemyCatResources;
-    public int enemyKidResources;
+    private int enemyRatResources;
+    private int enemyCatResources;
+    private int enemyKidResources;
 
     private void Start()
     {
