@@ -1039,12 +1039,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461af62fb6db29549b2d8ca60008f244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerResult1: {fileID: 0}
-  playerResult2: {fileID: 0}
-  playerResult3: {fileID: 0}
-  enemyResult1: {fileID: 0}
-  enemyResult2: {fileID: 0}
-  enemyResult3: {fileID: 0}
+  playerResult1: {fileID: 835002839}
+  playerResult2: {fileID: 607208007}
+  playerResult3: {fileID: 192381420}
+  enemyResult1: {fileID: 334651830}
+  enemyResult2: {fileID: 1457519659}
+  enemyResult3: {fileID: 1043611582}
 --- !u!114 &743417994
 MonoBehaviour:
   m_ObjectHideFlags: 0
