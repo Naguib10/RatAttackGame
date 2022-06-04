@@ -607,8 +607,8 @@ Canvas:
   m_GameObject: {fileID: 98292615}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1043,8 +1043,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341588631}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -3397}
+  m_LocalScale: {x: 1.25, y: 1.5, z: 1}
   m_Children:
   - {fileID: 1349990212}
   m_Father: {fileID: 634585282}
@@ -2263,7 +2263,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play again
+  m_Text: See Results
 --- !u!222 &609855760
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2389,7 +2389,7 @@ RectTransform:
   - {fileID: 341588632}
   - {fileID: 1488336995}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2610,7 +2610,7 @@ RectTransform:
   - {fileID: 1448674092}
   - {fileID: 467177428}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4293,7 +4293,7 @@ GameObject:
   - component: {fileID: 1488336997}
   - component: {fileID: 1488336996}
   m_Layer: 5
-  m_Name: ButtonPlayAgain
+  m_Name: ButtonSeeResults
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4384,7 +4384,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Scene1
+          m_StringArgument: EndScreen
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1488336998
@@ -5723,6 +5723,7 @@ MonoBehaviour:
   ratCounterText: {fileID: 369906268}
   catCounterText: {fileID: 1297326332}
   kidCounterText: {fileID: 1125691989}
+  enemyBehaviors: {fileID: 795117043}
   ratAtPlayerHouse: 0
   ratAtEnemyHouse: 0
   numberOfRatAtPlayerHouse: {fileID: 1916115091}
