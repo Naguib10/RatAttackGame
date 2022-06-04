@@ -106,7 +106,6 @@ public class GameManager : MonoBehaviour
 
            
             DataManager.instance.gameManager = this;
-            //DataManager.instance.Start();
             DataManager.instance.FetchResultData(levelNum);
         }
     }
