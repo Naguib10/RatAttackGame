@@ -4831,6 +4831,9 @@ MonoBehaviour:
   whichLevel: 0
   playerRatPoint: 0
   enemyRatPoint: 0
+  levels: 000000000000000000000000
+  playerRatPointResults: 000000000000000000000000
+  enemyRatPointResults: 000000000000000000000000
 --- !u!4 &1522375791
 Transform:
   m_ObjectHideFlags: 0

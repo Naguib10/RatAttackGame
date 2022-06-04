@@ -27,9 +27,9 @@ public class DataManager : MonoBehaviour
     public int playerRatPoint;
     public int enemyRatPoint;
 
-    List<int> levels = new List<int>();
-    List<int> playerRatPointResults = new List<int>();
-    List<int> enemyRatPointResults = new List<int>();
+    public List<int> levels = new List<int>();
+    public List<int> playerRatPointResults = new List<int>();
+    public List<int> enemyRatPointResults = new List<int>();
 
     public void FetchResultData(int levelNumber)
     {
@@ -41,15 +41,15 @@ public class DataManager : MonoBehaviour
         playerRatPointResults.Add(playerRatPoint);
         enemyRatPointResults.Add(enemyRatPoint);
 
-        Debug.Log("level: 1" + levels[0]);
+        Debug.Log("level 1: " + levels[0]);
         Debug.Log("playerRatPoint: " + playerRatPointResults[0]);
         Debug.Log("levels: " + enemyRatPointResults[0]);
 
-        Debug.Log("level: 2" + levels[1]);
+        Debug.Log("level 2:" + levels[1]);
         Debug.Log("playerRatPoint: " + playerRatPointResults[1]);
         Debug.Log("levels: " + enemyRatPointResults[1]);
 
-        Debug.Log("level: 3" + levels[2]);
+        Debug.Log("level 3: " + levels[2]);
         Debug.Log("playerRatPoint: " + playerRatPointResults[2]);
         Debug.Log("levels: " + enemyRatPointResults[2]);
     }
