@@ -826,6 +826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1670662510}
   gameResources: {fileID: 926962843}
+  removeResourceFromInventoryButton: {fileID: 0}
   ratCounter: 0
   catCounter: 0
   kidCounter: 0
@@ -858,7 +859,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &301065607
 GameObject:
@@ -2031,7 +2032,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 1, y: -115.00001}
+  m_AnchoredPosition: {x: 1, y: -115}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &532619207
@@ -2469,9 +2470,8 @@ MonoBehaviour:
   intervalForEnemyActions: 0
   MinimumintervalForEnemyActions: 0
   intervalOffset: 0
-  enemyRatResources: 0
-  enemyCatResources: 0
-  enemyKidResources: 0
+  x: 4
+  y: 0.5
 --- !u!4 &795117044
 Transform:
   m_ObjectHideFlags: 0
@@ -2663,7 +2663,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &954842943
 GameObject:
@@ -5432,7 +5432,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1653263056
 GameObject:
@@ -5732,7 +5732,7 @@ MonoBehaviour:
   resultText: {fileID: 1349990213}
   timer: {fileID: 2002464474}
   spawner: {fileID: 1192497350}
-  timeRemaining: 10
+  timeRemaining: 30
   isGameFinished: 0
 --- !u!4 &1670662511
 Transform:
@@ -5746,7 +5746,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1739738739
 GameObject:
