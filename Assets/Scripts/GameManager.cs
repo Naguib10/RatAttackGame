@@ -104,6 +104,9 @@ public class GameManager : MonoBehaviour
                 SfxManager.instance.ManageSFX(5);
             }
 
+           
+            DataManager.instance.gameManager = this;
+            //DataManager.instance.Start();
             DataManager.instance.FetchResultData(levelNum);
         }
     }
