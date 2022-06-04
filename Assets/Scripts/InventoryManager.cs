@@ -28,7 +28,6 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] PlayerActions playerActions;
     [SerializeField] GameManager gameManager;
 
-
     public List<Resource> resources = new List<Resource>(); // which type of resouse player has
     public List<int> resourceNumbers = new List<int>(); // how many resources player has
     public GameObject[] slots;
@@ -37,14 +36,14 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
-        DisplayResourcesInINventory();
+        DisplayResourcesInInventory();
     }
 
 
-    private void DisplayResourcesInINventory() 
+    public void DisplayResourcesInInventory()
     {
         #region
-        for (int i = 0; i < resources.Count; i++) 
+        for (int i = 0; i < resources.Count; i++)
         {
             ////Update slots resource image
             //slots[i].transform.GetChild(0).GetComponent<Image>().color = new Color(1, 1, 1, 1);
@@ -60,7 +59,7 @@ public class InventoryManager : MonoBehaviour
         #endregion
 
         // ignore the fact
-        for (int i = 0; i < slots.Length; i++) 
+        for (int i = 0; i < slots.Length; i++)
         {
             if (i < resources.Count)
             {
@@ -77,7 +76,7 @@ public class InventoryManager : MonoBehaviour
             }
             else // some remove resource
             {
-                
+
                 //Update slots resource image
                 slots[i].transform.GetChild(0).GetComponent<Image>().color = new Color(1, 1, 1, 0);
                 slots[i].transform.GetChild(0).GetComponent<Image>().sprite = null;
@@ -88,36 +87,34 @@ public class InventoryManager : MonoBehaviour
 
                 //Update slots remove button image
                 slots[i].transform.GetChild(2).gameObject.SetActive(false);
-                
-
             }
         }
     }
 
-    public void AddResourceIntoInventory(Resource resource) 
+    public void AddResourceIntoInventory(Resource resource)
     {
         if (!resources.Contains(resource)) //If there is one existing resource in list(resources)
         {
             resources.Add(resource);
-            resourceNumbers.Add(1);//
+            resourceNumbers.Add(1);//Add 1
         }
         else  //If there is a new resource in list(resources)
         {
             Debug.Log("You have already have this one");
 
-            for (int i = 0; i< resources.Count; i++) 
+            for (int i = 0; i < resources.Count; i++)
             {
-                if (resource == resources[i]) 
+                if (resource == resources[i])
                 {
                     resourceNumbers[i]++;
                 }
             }
         }
 
-        DisplayResourcesInINventory();
+        DisplayResourcesInInventory();
     }
 
-    public void RemoveResourceFromInventory(Resource resource)
+    public void RemoveResourceFromInventory(Resource resource)//Updated
     {
         if (resources.Contains(resource)) //If there is one existing resource in list(resources)
         {
@@ -125,68 +122,46 @@ public class InventoryManager : MonoBehaviour
             {
                 if (resource == resources[i])
                 {
-                    resourceNumbers[i]--;
-                    
-                    
-                    if (resources[i].resourceName == "Rat_I")//Rat_I
-                    {
-                        if (playerActions.ratCounter == 0)
-                        {
-                            return;
-                        }
-                        else
-                        {
-                            playerActions.ratCounter--;
-                            gameManager.ratCounterText.text = "" + playerActions.ratCounter;
-                        }
-                    }
+                    //resourceNumbers[i]--;
 
-                    if (resources[i].resourceName == "Cat_I")//Cat_I
-                    {
-                        if (playerActions.catCounter == 0)
-                        {
-                            return;
-                        }
-                        else 
-                        {
-                            playerActions.catCounter--;
-                            gameManager.catCounterText.text = "" + playerActions.catCounter;
-                        }
-                    }
 
-                    if (resources[i].resourceName == "Kid_I")//Kid_I
+                    if (resources[i].resourceName == "Rat_I" && playerActions.ratCounter > 0 && resourceNumbers[i] > 0)//Rat_I
                     {
-                        if (playerActions.kidCounter == 0)
-                        {
-                            return;
-                        }
-                        else 
-                        {
-                            playerActions.kidCounter--;
-                            gameManager.kidCounterText.text = "" + playerActions.kidCounter;
-                        }
-                    }
-                    
-                    
+                        playerActions.ratCounter--;
+                        gameManager.ratCounterText.text = "" + playerActions.ratCounter;
 
-                    
-                    if (resourceNumbers[i] == 0)
+                        resourceNumbers[i]--;
+                    }
+                    else if (resources[i].resourceName == "Cat_I" && playerActions.catCounter > 0 && resourceNumbers[i] > 0)//Cat_I
+                    {
+                        playerActions.catCounter--;
+                        gameManager.catCounterText.text = "" + playerActions.catCounter;
+
+                        resourceNumbers[i]--;
+                    }
+                    else if (resources[i].resourceName == "Kid_I" && playerActions.kidCounter > 0 && resourceNumbers[i] > 0)//Kid_I
+                    {
+                        playerActions.kidCounter--;
+                        gameManager.kidCounterText.text = "" + playerActions.kidCounter;
+
+                        resourceNumbers[i]--;
+                    }
+                    else if (resourceNumbers[i] == 0)
                     {
                         // it needs to remove this
                         resources.Remove(resource);
                         resourceNumbers.Remove(resourceNumbers[i]);
                     }
-                    
                 }
             }
         }
-        else 
+        else
         {
             Debug.Log("There is no " + resource + " in the list (resources)");
         }
 
         //If there is no resource in nventory
-        DisplayResourcesInINventory();
+        DisplayResourcesInInventory();
     }
 
 }
