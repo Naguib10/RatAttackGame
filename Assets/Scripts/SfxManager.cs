@@ -9,7 +9,7 @@ public class SfxManager : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogWarning("More than one instance of SfxManager found!");
+            Debug.Log("More than one instance of SfxManager found!");
             return;
         }
 

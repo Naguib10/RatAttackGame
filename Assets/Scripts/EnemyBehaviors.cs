@@ -23,13 +23,17 @@ public class EnemyBehaviors : MonoBehaviour
     public float x = 4.0f;
     public float y = 0.5f;
 
+    Coroutine lastCoroutine;
+
     private void Start()
     {
         enemyRatResources = 0;
         enemyCatResources = 0;
         enemyKidResources = 0;
 
-        StartCoroutine(EnemyBehaviorManager(x, y));
+        
+        lastCoroutine = StartCoroutine(EnemyBehaviorManager(x, y));
+        
     }
 
     IEnumerator EnemyBehaviorManager(float intervalToFetchPlayerStats, float MinimumintervalForEnemyActions)
@@ -151,6 +155,15 @@ public class EnemyBehaviors : MonoBehaviour
                         break;
                 }
             }
+        }
+
+    }
+
+    public void StopEnemy()
+    {
+        if (gameManager.isGameFinished)
+        {
+            StopCoroutine(lastCoroutine);
         }
     }
 }
