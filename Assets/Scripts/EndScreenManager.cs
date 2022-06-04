@@ -13,14 +13,11 @@ public class EndScreenManager : MonoBehaviour
     [SerializeField] Text enemyResult2;
     [SerializeField] Text enemyResult3;
 
-    string testString;
 
     // Start is called before the first frame update
     void Start()
     {
         BgmManager.instance.ManageBGM("Play", 2);
-
-        testString = DataManager.instance.playerRatPointResults[0].ToString();
 
         ShowStats();
     
@@ -33,8 +30,7 @@ public class EndScreenManager : MonoBehaviour
 
     public void ShowStats() 
     {
-        //playerResult1.text = DataManager.instance.playerRatPointResults[0].ToString();
-        playerResult1.text = testString;
+        playerResult1.text = DataManager.instance.playerRatPointResults[0].ToString();
         playerResult2.text = DataManager.instance.playerRatPointResults[1].ToString();
         playerResult3.text = DataManager.instance.playerRatPointResults[2].ToString();
 
