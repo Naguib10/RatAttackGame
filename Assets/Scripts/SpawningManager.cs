@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawningManager : MonoBehaviour
 {
     public GameResources rat;
     public GameResources cat;
     public GameResources kid;
+
+    Scene currentScene;
 
     public float spawnTime;
     private Vector2 screenBounds;
@@ -18,12 +21,28 @@ public class SpawningManager : MonoBehaviour
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
 
         InvokeRepeating("Spawn", 0f, spawnTime);
+
+        currentScene = SceneManager.GetActiveScene();
     }
 
 
     public void Spawn()
     {
-        int randomResource = Random.Range(1, 4);
+        int randomResource = 1;
+
+        if (currentScene.name == "Scene1")
+        {
+            randomResource = Random.Range(1, 2);
+        }
+        else if (currentScene.name == "Scene2")
+        {
+            randomResource = Random.Range(1, 3);
+        }
+        else if (currentScene.name == "Scene3")
+        {
+            randomResource = Random.Range(1, 4);
+        }
+
         float startingSide = rightOrLeft[Random.Range(0, 2)];
 
         switch (randomResource) {

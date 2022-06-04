@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text numberOfRatAtEnemyHouse;
 
     [SerializeField] GameObject resultBox;
+    [SerializeField] GameObject nextLevelButton;
     [SerializeField] Text resultText;
 
     [SerializeField] Text timer;
@@ -72,6 +73,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(spawner);
 
+            nextLevelButton.SetActive(true);
+
             SfxManager.instance.ManageSFX(7);
 
             if (ratAtPlayerHouse < ratAtEnemyHouse)
@@ -108,7 +111,7 @@ public class GameManager : MonoBehaviour
         switch (result)
         {
             case "Win":
-                resultText.text = "You win!! You threw rats more than your neighbor did!!";
+                resultText.text = "You win!! You threw more rats at your neighbor's house!";
                 break;
 
             case "Draw":
@@ -116,7 +119,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case "Lose":
-                resultText.text = "You lose.. Your neighbor threw rats more than you did...";
+                resultText.text = "You lose.. Your neighbor threw more rats at your house";
                 break;
 
             default:
