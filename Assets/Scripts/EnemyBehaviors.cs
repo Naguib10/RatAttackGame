@@ -31,7 +31,7 @@ public class EnemyBehaviors : MonoBehaviour
         enemyCatResources = 0;
         enemyKidResources = 0;
         
-        lastCoroutine = StartCoroutine(EnemyBehaviorManager(x, y));
+        lastCoroutine = StartCoroutine(EnemyBehaviorManager(intervalLong, intervalShort));
     }
 
     IEnumerator EnemyBehaviorManager(float intervalToFetchPlayerStats, float MinimumintervalForEnemyActions)
