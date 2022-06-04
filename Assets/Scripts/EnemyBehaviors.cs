@@ -8,10 +8,10 @@ public class EnemyBehaviors : MonoBehaviour
     [SerializeField] PlayerActions playerActions;
     [SerializeField] ResourceImageUpdate resourceImageUpdate;
     
-    public float intervalToFetchPlayerStats;
-    public float intervalForEnemyActions;
-    public float MinimumintervalForEnemyActions;
-    public float intervalOffset;
+    private float intervalToFetchPlayerStats;
+    private float intervalForEnemyActions;
+    private float MinimumintervalForEnemyActions;
+    private float intervalOffset;
 
     private int enemyRatResources;
     private int enemyCatResources;
@@ -20,8 +20,8 @@ public class EnemyBehaviors : MonoBehaviour
     //public float intervalToFetchPlayerStats = 4.0f;// Every interval (seconds), Enemy fetch the Player's stats for each resource.
     //public float MinimumintervalForEnemyActions = 0.5f;// Every interval (seconds), Enemy fetch the Player's stats for each resource.
 
-    public float x = 4.0f;
-    public float y = 0.5f;
+    public float intervalLong = 4.0f;  //How many seconds does it take for enemy to fetch Player's resource data.
+    public float intervalShort = 0.5f; //How many seconds does it take for enemy's action between actions.
 
     Coroutine lastCoroutine;
 
@@ -30,18 +30,16 @@ public class EnemyBehaviors : MonoBehaviour
         enemyRatResources = 0;
         enemyCatResources = 0;
         enemyKidResources = 0;
-
         
         lastCoroutine = StartCoroutine(EnemyBehaviorManager(x, y));
-        
     }
 
     IEnumerator EnemyBehaviorManager(float intervalToFetchPlayerStats, float MinimumintervalForEnemyActions)
     {
         while (gameManager.isGameFinished == false)
         {
-            //intervalToFetchPlayerStats = 4.0f;// Every interval (seconds), Enemy fetch the Player's stats for each resource.
-            //MinimumintervalForEnemyActions = 0.5f;// Every interval (seconds), Enemy fetch the Player's stats for each resource.
+            //intervalToFetchPlayerStats = 4.0f;// ow many seconds does it take for enemy to fetch Player's resource data.
+            //MinimumintervalForEnemyActions = 0.5f;// How many seconds does it take for enemy's action between actions.
 
             intervalForEnemyActions = (intervalToFetchPlayerStats / 5); // 5 is the number of interbals after Enemy threw resources
             intervalOffset = Mathf.Abs(intervalForEnemyActions - MinimumintervalForEnemyActions);

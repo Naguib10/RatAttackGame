@@ -25,7 +25,12 @@ public class GameManager : MonoBehaviour
 
     public float timeRemaining;
     public bool isGameFinished;
-    
+
+    public int levelNum;
+
+    //public DataManager dataManager;
+
+
     void Start()
     {
         ratAtPlayerHouse = 0;
@@ -98,6 +103,8 @@ public class GameManager : MonoBehaviour
 
                 SfxManager.instance.ManageSFX(5);
             }
+
+            DataManager.instance.FetchResultData(levelNum);
         }
     }
 
