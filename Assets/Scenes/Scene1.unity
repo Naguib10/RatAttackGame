@@ -552,9 +552,9 @@ MonoBehaviour:
     - 'You:'
     - 'Neighbor:'
     sentences:
-    - Don't throw rat!
-    - Don't throw cat!
-    - Don't throw kid!
+    - Stop throwing rats!
+    - Don't place cats!
+    - Who is this kid?!
 --- !u!1 &98292615
 GameObject:
   m_ObjectHideFlags: 0

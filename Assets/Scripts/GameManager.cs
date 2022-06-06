@@ -123,15 +123,15 @@ public class GameManager : MonoBehaviour
         switch (result)
         {
             case "Win":
-                resultText.text = "You win!! You threw more rats at your neighbor's house!";
+                resultText.text = "You win this round! You threw more rats at your neighbor's house!";
                 break;
 
             case "Draw":
-                resultText.text = "Draw";
+                resultText.text = "Draw! No one wins this round";
                 break;
 
             case "Lose":
-                resultText.text = "You lose.. Your neighbor threw more rats at your house";
+                resultText.text = "You lost this round Your neighbor threw more rats at you";
                 break;
 
             default:
