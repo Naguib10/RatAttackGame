@@ -1005,7 +1005,7 @@ MonoBehaviour:
     show/hide Help =
     h
 
-    show info = right mouse button on item'
+    show info = right click on an item'
 --- !u!222 &2085342120
 CanvasRenderer:
   m_ObjectHideFlags: 0
