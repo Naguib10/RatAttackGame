@@ -2834,7 +2834,7 @@ RectTransform:
   m_GameObject: {fileID: 997043109}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 1194412983}
   - {fileID: 1909377090}
@@ -4654,21 +4654,21 @@ MonoBehaviour:
   helpMessageText: {fileID: 1909377091}
   helpMessages:
     sentences:
-    - "How to Play?\r\n\r\n* For Win: Player needs to throw more rats to neighbor's
-      house than the Neighbor does.\r\n\r\n* Similar to rock-paper-scissors, Rat
+    - "How to Play?\r\n\r\n* To Win: Player needs to throw more rats to neighbor's
+      house than the neighbor does.\r\n\r\n* Similar to rock-paper-scissors, Rat
       nullifies Kid,  Cat nullifies Rat, and Kid nullifies Cat.  \r\n\r\n# To Catch
-      Rat / Cat / Kid, Click Mouse-Left-Button\r\n# To Throw Rat, Press \"1\" + Mouse-Left-Button\r\n#
-      To Throw Cat, Press \"2\" + Mouse-Left-Button\r\n# To Throw Kid, Press \"3\"
-      + Mouse-Left-Button"
+      a Rat / Cat / Kid, Click Mouse-Left-Button\r\n# To Throw Rat, Press \"1\" +
+      Mouse-Left-Button\r\n# To Throw Cat, Press \"2\" + Mouse-Left-Button\r\n# To
+      Throw Kid, Press \"3\" + Mouse-Left-Button"
     - "Click Mouse-Left-Button to Catch!\r"
-    - The number of Rats which player caught
-    - The number of Cats which player caught
-    - The number of Kids which player caught
+    - The number of Rats you caught
+    - The number of Cats you caught
+    - The number of Kids you caught
     - Time Left
-    - The number of Rats which Player threw to Neighbor
-    - The number of Rats which Neighbor threw to Player
-    - Room of Player's house to throw.
-    - Room of Neighbor's house to throw.
+    - The number of Rats you threw at your neighbor
+    - The number of Rats your neighbor threw at you
+    - Your room
+    - Room of Neighbor's house to throw at
   startTime: 0
 --- !u!4 &1508993054
 Transform:

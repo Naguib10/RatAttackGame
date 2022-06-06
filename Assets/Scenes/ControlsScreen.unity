@@ -998,11 +998,14 @@ MonoBehaviour:
     Throw kids = Left mouse button
     + 3
 
-    Show inventory = i
+    Show/hide inventory = i
 
-    Pause = p
+    Pause/resume = p
 
-    Help = h'
+    show/hide Help =
+    h
+
+    show info = right mouse button on item'
 --- !u!222 &2085342120
 CanvasRenderer:
   m_ObjectHideFlags: 0
