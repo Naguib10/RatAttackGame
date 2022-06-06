@@ -3615,7 +3615,7 @@ RectTransform:
   m_GameObject: {fileID: 1349990211}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 341588632}
   m_RootOrder: 0
@@ -4667,7 +4667,7 @@ MonoBehaviour:
     - Time Left
     - The number of Rats you threw at your neighbor
     - The number of Rats your neighbor threw at you
-    - Your room
+    - Your room that the neighbor is trying to throw at
     - Room of Neighbor's house to throw at
   startTime: 0
 --- !u!4 &1508993054
