@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 13922669}
   - component: {fileID: 13922668}
   - component: {fileID: 13922670}
-  - component: {fileID: 13922671}
   m_Layer: 5
   m_Name: EnemyHousesRatCounter
   m_TagString: EnemyHousesRatCounter
@@ -220,21 +219,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -24.489246}
   serializedVersion: 2
   m_Radius: 46.495083
---- !u!114 &13922671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 13922666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 3, y: 3}
-  m_UseGraphicAlpha: 1
 --- !u!1001 &19638782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1221,7 +1205,6 @@ GameObject:
   - component: {fileID: 369906269}
   - component: {fileID: 369906268}
   - component: {fileID: 369906270}
-  - component: {fileID: 369906271}
   m_Layer: 5
   m_Name: RatCounter
   m_TagString: RatCounter
@@ -1306,21 +1289,6 @@ CircleCollider2D:
   m_Offset: {x: -25.101181, y: 17.562538}
   serializedVersion: 2
   m_Radius: 37.65286
---- !u!114 &369906271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369906266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 3, y: 3}
-  m_UseGraphicAlpha: 1
 --- !u!1 &376265128
 GameObject:
   m_ObjectHideFlags: 0
@@ -6085,7 +6053,6 @@ GameObject:
   - component: {fileID: 1916115092}
   - component: {fileID: 1916115091}
   - component: {fileID: 1916115093}
-  - component: {fileID: 1916115094}
   m_Layer: 5
   m_Name: PlayerHousesRatCounter
   m_TagString: PlayerHousesRatCounter
@@ -6170,21 +6137,6 @@ CircleCollider2D:
   m_Offset: {x: -1.5099592, y: -24.70845}
   serializedVersion: 2
   m_Radius: 45.661556
---- !u!114 &1916115094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1916115089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 3, y: 3}
-  m_UseGraphicAlpha: 1
 --- !u!1 &1949893798
 GameObject:
   m_ObjectHideFlags: 0
@@ -6482,7 +6434,6 @@ GameObject:
   - component: {fileID: 2002464475}
   - component: {fileID: 2002464474}
   - component: {fileID: 2002464476}
-  - component: {fileID: 2002464477}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Timer
@@ -6577,21 +6528,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 270.58777, y: 100.379486}
   m_EdgeRadius: 0
---- !u!114 &2002464477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2002464472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 3, y: 3}
-  m_UseGraphicAlpha: 1
 --- !u!1 &2077426172
 GameObject:
   m_ObjectHideFlags: 0
