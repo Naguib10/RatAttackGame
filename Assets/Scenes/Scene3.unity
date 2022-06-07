@@ -338,56 +338,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 760356134737847010, guid: 5df51a7ce87acb14f9acbb7d13d0309a, type: 3}
   m_PrefabInstance: {fileID: 760356134746483695}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &72598181
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 72598183}
-  - component: {fileID: 72598182}
-  m_Layer: 0
-  m_Name: DataManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &72598182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 72598181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0dfdd94f2c6b3419fee3032532ba4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 1670662510}
-  whichLevel: 0
-  playerRatPoint: 0
-  enemyRatPoint: 0
-  levels: 000000000000000000000000
-  playerRatPointResults: 000000000000000000000000
-  enemyRatPointResults: 000000000000000000000000
---- !u!4 &72598183
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 72598181}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &90653325
 GameObject:
   m_ObjectHideFlags: 0

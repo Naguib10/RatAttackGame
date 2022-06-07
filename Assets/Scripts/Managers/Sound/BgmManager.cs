@@ -10,7 +10,7 @@ public class BgmManager : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.Log("More than one instance of MgmManager found!");
+            Debug.Log("More than one instance of BgmManager found!");
             return;
         }
         
