@@ -25,17 +25,13 @@ public class GameManager : MonoBehaviour
 
     public float timeRemaining;
     public bool isGameFinished;
-
     public int levelNum;
-
-    //public DataManager dataManager;
 
 
     void Start()
     {
         ratAtPlayerHouse = 0;
         ratAtEnemyHouse = 0;
-        //timeRemaining = 60.00f;
         
         BgmManager.instance.ManageBGM("Play", 0);
 

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,7 +22,6 @@ public class InventoryManager : MonoBehaviour
     }
     #endregion
 
-    //public bool isPaused;
 
     [SerializeField] PlayerActions playerActions;
     [SerializeField] GameManager gameManager;
@@ -32,7 +30,6 @@ public class InventoryManager : MonoBehaviour
     public List<int> resourceNumbers = new List<int>(); // how many resources player has
     public GameObject[] slots;
 
-    //public Dictionary<Resource, int> resourceDictionary = new Dictionary<Resource, int>(); //
 
     private void Start()
     {
@@ -122,8 +119,6 @@ public class InventoryManager : MonoBehaviour
             {
                 if (resource == resources[i])
                 {
-                    //resourceNumbers[i]--;
-
 
                     if (resources[i].resourceName == "Rat_I" && playerActions.ratCounter > 0 && resourceNumbers[i] > 0)//Rat_I
                     {

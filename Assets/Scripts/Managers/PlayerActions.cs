@@ -5,9 +5,6 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] GameManager gameManager;
     [SerializeField] GameResources gameResources;
     [SerializeField] RemoveResourceFromInventoryButton removeResourceFromInventoryButton;
-    //[SerializeField] InputManager inputManager;
-
-    //public Resource[] resourceDatas;
 
     public int ratCounter;
     public int catCounter;

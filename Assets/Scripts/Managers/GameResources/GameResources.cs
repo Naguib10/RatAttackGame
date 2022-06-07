@@ -4,7 +4,7 @@ public class GameResources : MonoBehaviour
 {
     public GameObject resourcePrefab;
 
-    public Resource resourceData;//
+    public Resource resourceData;
 
     public GameResourcesTypes gameResourcesTypes;
 
@@ -13,7 +13,6 @@ public class GameResources : MonoBehaviour
     public float speed;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
-    private float[] rightOrLeft = { 1f, -1f };
 
     void Start()
     {

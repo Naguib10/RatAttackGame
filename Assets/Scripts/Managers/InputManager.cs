@@ -132,7 +132,7 @@ public class InputManager : MonoBehaviour
 
                 Time.timeScale = 0.0f; // time stop
 
-                isPaused = true;//
+                isPaused = true;
             }
             else
             {
@@ -140,10 +140,10 @@ public class InputManager : MonoBehaviour
 
                 Time.timeScale = 1.0f; // real time is 1.0f
 
-                isPaused = false;//
+                isPaused = false;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.P))// Pause gameplay
+        else if (Input.GetKeyDown(KeyCode.P)) // Pause gameplay
         {
             pKeyHitNumber ++;
 
@@ -151,13 +151,13 @@ public class InputManager : MonoBehaviour
             {
                 Time.timeScale = 0.0f; // time stop
 
-                isPaused = true;//
+                isPaused = true;
             }
             else
             {
                 Time.timeScale = 1.0f; // real time is 1.0f
 
-                isPaused = false;//
+                isPaused = false;
             }
         }
         else if (Input.GetKeyDown(KeyCode.I))//Show Inventory
