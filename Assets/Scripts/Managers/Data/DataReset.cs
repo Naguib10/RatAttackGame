@@ -13,5 +13,6 @@ public class DataReset : MonoBehaviour
         DataManager.instance.whichLevel = 0;
 
         BgmManager.instance.ManageBGM("Stop", 0);
+
     }
 }

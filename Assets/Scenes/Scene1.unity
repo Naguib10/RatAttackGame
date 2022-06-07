@@ -1936,7 +1936,6 @@ GameObject:
   - component: {fileID: 609855758}
   - component: {fileID: 609855760}
   - component: {fileID: 609855759}
-  - component: {fileID: 609855761}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -2005,21 +2004,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 609855757}
   m_CullTransparentMesh: 1
---- !u!114 &609855761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 609855757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 1, y: -1}
-  m_UseGraphicAlpha: 1
 --- !u!1 &619359120 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 760356134737847011, guid: 5df51a7ce87acb14f9acbb7d13d0309a, type: 3}
@@ -3420,7 +3404,6 @@ GameObject:
   - component: {fileID: 1349990212}
   - component: {fileID: 1349990214}
   - component: {fileID: 1349990213}
-  - component: {fileID: 1349990215}
   m_Layer: 5
   m_Name: ResultText
   m_TagString: Untagged
@@ -3489,21 +3472,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349990211}
   m_CullTransparentMesh: 1
---- !u!114 &1349990215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349990211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 3, y: 3}
-  m_UseGraphicAlpha: 1
 --- !u!1 &1354496841
 GameObject:
   m_ObjectHideFlags: 0

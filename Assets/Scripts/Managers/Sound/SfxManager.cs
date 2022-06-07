@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SfxManager : MonoBehaviour
 {
@@ -9,7 +10,10 @@ public class SfxManager : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.Log("More than one instance of SfxManager found!");
+            if (SceneManager.GetActiveScene().name == "Scene1")
+            {
+                Destroy(gameObject);
+            }
             return;
         }
 

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DataManager : MonoBehaviour
 {
@@ -10,7 +11,10 @@ public class DataManager : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogWarning("More than one instance of DataManager found!");
+            if (SceneManager.GetActiveScene().name == "Scene1")
+            {
+                Destroy(gameObject);
+            }
             return;
         }
 

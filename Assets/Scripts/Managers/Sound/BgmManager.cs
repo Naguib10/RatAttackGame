@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BgmManager : MonoBehaviour
 {
@@ -10,16 +11,22 @@ public class BgmManager : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.Log("More than one instance of BgmManager found!");
+            if (SceneManager.GetActiveScene().name == "StartScreen")
+            {
+                Destroy(gameObject);
+            }
             return;
         }
         
         instance = this;
 
         DontDestroyOnLoad(gameObject);// not delete data
+
     }
     #endregion
-   
+
+
+
     public AudioSource audioSource;
     public AudioClip[] backGroundMusics;
     public bool isPlayingBgm;
