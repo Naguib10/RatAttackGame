@@ -17,8 +17,6 @@ public class InventoryManager : MonoBehaviour
         }
 
         instance = this;
-
-        DontDestroyOnLoad(gameObject);// not delete data
     }
     #endregion
 

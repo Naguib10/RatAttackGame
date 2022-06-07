@@ -14,8 +14,6 @@ public class InventoryUIManager : MonoBehaviour
         }
 
         instance = this;
-
-        DontDestroyOnLoad(gameObject);// not deleate
     }
     #endregion
 

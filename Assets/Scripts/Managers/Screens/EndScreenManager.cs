@@ -42,11 +42,6 @@ public class EndScreenManager : MonoBehaviour
 
     }
 
-    public void QuitGame() 
-    {
-        Application.Quit();
-    }
-
     public void CheckFinalWinner()
     {
 
